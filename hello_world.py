@@ -1,7 +1,7 @@
 import os
 from mycode import csv_json
 
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 
 # csv to json written
 
@@ -9,11 +9,11 @@ questions = csv_json('db/questionlist.csv')
 
 # web app
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 
 @app.route('/')
 def hello():
-    return 'Hello!'
+    return 'Hellos!'
 
 @app.route('/gib')
 def gib():
