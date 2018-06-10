@@ -4,6 +4,7 @@ const app = document.getElementById('root');
 // logo set to logo.png
 const logo = document.createElement('img');
 logo.src = '../img/sheep.png';
+logo.style.width = "400px";
 
 // set up container
 const container = document.createElement('div');
@@ -17,7 +18,7 @@ app.appendChild(container);
 var request = new XMLHttpRequest();
 
 // Open a new connection, using the GET request on the URL endpoint
-request.open('GET', 'https://ghibliapi.herokuapp.com/films', true);
+request.open('GET', 'http://ẹmpirestreet.com.au/questionlist', true);
 request.onload = function () {
 
   // Begin accessing JSON data here
@@ -25,19 +26,18 @@ request.onload = function () {
 
   // Error handling
   if (request.status >= 200 && request.status < 400) {
-    data.forEach(movie => {
+    data.forEach(question => {
       // Create a div with a card class
       const card = document.createElement('div');
       card.setAttribute('class', 'card');
 
       // Create an h1 and set the text content to the film's title
       const h1 = document.createElement('h1');
-      h1.textContent = movie.title;
+      h1.textContent = question.Subject;
 
       // Create a p and set the text content to the film's description
       const p = document.createElement('p');
-      movie.description = movie.description.substring(0, 300); // Limit to 300 chars
-      p.textContent = `${movie.description}...`; // End with an ellipses
+      p.textContent = question.Q1;
 
       // Append the cards to the container element
       container.appendChild(card);
