@@ -32,10 +32,6 @@ def questionlist():
 def chuck():
     return requests.get('http://api.icndb.com/jokes/random').json()['value']['joke']
 
-@app.route('/crypto')
-def crypto():
-    return requests.get('https://api.coinmarketcap.com/v2/ticker/?limit=0')
-
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
     port = int(os.environ.get('PORT', 5000))
