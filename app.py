@@ -2,6 +2,7 @@ import os
 from mycode import csv_json
 
 from flask import Flask, render_template, send_from_directory
+import requests
 
 # csv to json written
 
@@ -26,6 +27,14 @@ def memory():
 @app.route('/questionlist')
 def questionlist():
     return str(questions)
+
+@app.route('/chuck')
+def chuck():
+    return requests.get('http://api.icndb.com/jokes/random').json()['value']['joke']
+
+@app.route('/crypto')
+def crypto():
+    return requests.get('https://api.coinmarketcap.com/v2/ticker/?limit=0')
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
