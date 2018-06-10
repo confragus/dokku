@@ -18,7 +18,7 @@ app.appendChild(container);
 var request = new XMLHttpRequest();
 
 // Open a new connection, using the GET request on the URL endpoint
-request.open('GET', 'http://ẹmpirestreet.com.au/questionlist', true);
+request.open('GET', 'http://empirestreet.com.au/questionlist', true);
 request.onload = function () {
 
   // Begin accessing JSON data here
