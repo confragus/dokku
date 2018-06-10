@@ -1,56 +1,56 @@
-// Access div in index.html
-const app = document.getElementById('root');
+// // Access div in index.html
+// const app = document.getElementById('root');
 
-// logo set to logo.png
-const logo = document.createElement('img');
-logo.src = '../img/sheep.png';
-logo.style.width = "400px";
+// // logo set to logo.png
+// const logo = document.createElement('img');
+// logo.src = '../img/sheep.png';
+// logo.style.width = "400px";
 
-// set up container
-const container = document.createElement('div');
-container.setAttribute('class', 'container');
+// // set up container
+// const container = document.createElement('div');
+// container.setAttribute('class', 'container');
 
-// add logo and containder to the app root
-app.appendChild(logo);
-app.appendChild(container);
+// // add logo and containder to the app root
+// app.appendChild(logo);
+// app.appendChild(container);
 
-// Create a request variable and assign a new XMLHttpRequest object to it.
-var request = new XMLHttpRequest();
+// // Create a request variable and assign a new XMLHttpRequest object to it.
+// var request = new XMLHttpRequest();
 
-// Open a new connection, using the GET request on the URL endpoint
-request.open('GET', 'http://empirestreet.com.au/questionlist', true);
-request.onload = function () {
+// // Open a new connection, using the GET request on the URL endpoint
+// request.open('GET', 'http://www.empirestreet.com.au/questionlist', true);
+// request.onload = function () {
 
-  // Begin accessing JSON data here
-  var data = JSON.parse(this.response);
+//   // Begin accessing JSON data here
+//   var data = JSON.parse(this.response);
 
-  // Error handling
-  if (request.status >= 200 && request.status < 400) {
-    data.forEach(question => {
-      // Create a div with a card class
-      const card = document.createElement('div');
-      card.setAttribute('class', 'card');
+//   // Error handling
+//   if (request.status >= 200 && request.status < 400) {
+//     data.forEach(question => {
+//       // Create a div with a card class
+//       const card = document.createElement('div');
+//       card.setAttribute('class', 'card');
 
-      // Create an h1 and set the text content to the film's title
-      const h1 = document.createElement('h1');
-      h1.textContent = question.Subject;
+//       // Create an h1 and set the text content to the film's title
+//       const h1 = document.createElement('h1');
+//       h1.textContent = question.Subject;
 
-      // Create a p and set the text content to the film's description
-      const p = document.createElement('p');
-      p.textContent = question.Q1;
+//       // Create a p and set the text content to the film's description
+//       const p = document.createElement('p');
+//       p.textContent = question.Q1;
 
-      // Append the cards to the container element
-      container.appendChild(card);
+//       // Append the cards to the container element
+//       container.appendChild(card);
 
-      // Each card will contain an h1 and a p
-      card.appendChild(h1);
-      card.appendChild(p);
-    });
-  } else {
-    const errorMessage = document.createElement('marquee');
-    errorMessage.textContent = `Gah, it's not working!`;
-    app.appendChild(errorMessage);
-  }
-}
+//       // Each card will contain an h1 and a p
+//       card.appendChild(h1);
+//       card.appendChild(p);
+//     });
+//   } else {
+//     const errorMessage = document.createElement('marquee');
+//     errorMessage.textContent = `Gah, it's not working!`;
+//     app.appendChild(errorMessage);
+//   }
+// }
 
-request.send();
+// request.send();
