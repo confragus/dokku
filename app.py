@@ -15,9 +15,9 @@ app = Flask(__name__, static_url_path='')
 def hello():
     return 'Hellos!'
 
-@app.route('/gib')
+@app.route('/sheep')
 def gib():
-    return render_template('ghibli.html')
+    return render_template('sheep.html')
 
 @app.route('/questionlist')
 def questionlist():
