@@ -12,12 +12,16 @@ questions = csv_json('db/questionlist.csv')
 app = Flask(__name__, static_url_path='')
 
 @app.route('/')
-def hello():
-    return 'Hellos!'
+def index():
+    return render_template('index.html')
 
 @app.route('/sheep')
-def gib():
+def sheep():
     return render_template('sheep.html')
+
+@app.route('/memory')
+def memory():
+    return render_template('memory.html')
 
 @app.route('/questionlist')
 def questionlist():
