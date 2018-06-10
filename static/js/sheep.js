@@ -3,7 +3,7 @@ const app = document.getElementById('root');
 
 // logo set to logo.png
 const logo = document.createElement('img');
-logo.src = '../img/ghibli.png';
+logo.src = '../img/sheep.png';
 
 // set up container
 const container = document.createElement('div');
