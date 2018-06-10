@@ -17,7 +17,7 @@ def hello():
 
 @app.route('/gib')
 def gib():
-    return render_template('index.html')
+    return render_template('ghibli.html')
 
 @app.route('/questionlist')
 def questionlist():
