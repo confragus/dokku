@@ -1,15 +1,11 @@
 import os
-from mycode import csv_json, cmc_flat
+from mycode import csv_json, cmc_flat, cmc_json
 
 from flask import Flask, render_template, send_from_directory
 
 # Import question list
 
 questions = csv_json('db/questionlist.csv')
-
-# CMC
-
-crypto_json = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC')
 
 # web app
 
@@ -21,7 +17,30 @@ def index():
 
 @app.route('/cmc')
 def cmc():
-    return str(crypto_json)
+    # CMC
+
+    flat_file = []
+    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC', flat_file)
+    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=101', flat_file)
+    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=201', flat_file)
+    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=301', flat_file)
+    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=401', flat_file)
+    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=501', flat_file)
+    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=601', flat_file)
+    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=701', flat_file)
+    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=801', flat_file)
+    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=901', flat_file)
+    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=1001', flat_file)
+    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=1101', flat_file)
+    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=1201', flat_file)
+    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=1301', flat_file)
+    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=1401', flat_file)
+    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=1501', flat_file)
+    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=1601', flat_file)
+
+    json_file = cmc_json(flat_file)
+    
+    return str(json_file)
 
 @app.route('/chuck')
 def chuck():

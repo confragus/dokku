@@ -3,16 +3,18 @@ import json
 import requests
 from flatten_json import flatten
 
-def cmc_flat(API):
+def cmc_flat(API, flat_file):
 
     # flatten cmc version 2 api
 
-    raw_file = requests.get(API).json()['data']
-   
-    flat_file = []
+    raw_file = requests.get(API).json()['data'] 
 
     for key, value in raw_file.items():
         flat_file.append(flatten(raw_file[key]))
+
+    return flat_file
+
+def cmc_json(flat_file):
 
     sort_file = sorted(flat_file, key=lambda k: k['rank']) 
 
