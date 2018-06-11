@@ -8,7 +8,7 @@ def cmc_flat(API):
     # flatten cmc version 2 api
 
     raw_file = requests.get(API).json()['data']
-
+   
     flat_file = []
 
     for key, value in raw_file.items():

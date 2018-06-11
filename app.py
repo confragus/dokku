@@ -9,7 +9,7 @@ questions = csv_json('db/questionlist.csv')
 
 # CMC
 
-crypto_json = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&limit=0')
+crypto_json = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC')
 
 # web app
 
