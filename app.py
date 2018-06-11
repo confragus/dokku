@@ -1,12 +1,15 @@
 import os
-from mycode import csv_json
+from mycode import csv_json, get_flat
 
 from flask import Flask, render_template, send_from_directory
-import requests
 
-# csv to json written
+# Import question list
 
 questions = csv_json('db/questionlist.csv')
+
+# CMC
+
+crypto_json = get_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&limit=0')
 
 # web app
 
@@ -16,9 +19,13 @@ app = Flask(__name__, static_url_path='')
 def index():
     return render_template('index.html')
 
-@app.route('/sheep')
-def sheep():
-    return render_template('sheep.html')
+@app.route('/cmc')
+def cmc():
+    return str(crypto_json)
+
+@app.route('/chuck')
+def chuck():
+    return requests.get('http://api.icndb.com/jokes/random').json()['value']['joke']
 
 @app.route('/memory')
 def memory():
@@ -28,9 +35,9 @@ def memory():
 def questionlist():
     return str(questions)
 
-@app.route('/chuck')
-def chuck():
-    return requests.get('http://api.icndb.com/jokes/random').json()['value']['joke']
+@app.route('/sheep')
+def sheep():
+    return render_template('sheep.html')
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.

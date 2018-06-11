@@ -1,5 +1,21 @@
 import csv
 import json
+import requests
+from flatten_json import flatten
+
+def cmc_flat(API):
+
+    # flatten cmc version 2 api
+
+    raw_file = requests.get(API).json()['data']
+
+    flat_file = raw_file
+
+    for key, value in raw_file.items():
+        flat_file[key] = flatten(raw_file[key])
+
+    return json.dumps(flat_file, sort_keys=True, indent=4, separators=(',', ': '))
+
 
 def csv_dict(filename):
 
