@@ -1,5 +1,5 @@
 import os
-from mycode import csv_json, get_flat
+from mycode import csv_json, cmc_flat
 
 from flask import Flask, render_template, send_from_directory
 
@@ -9,7 +9,7 @@ questions = csv_json('db/questionlist.csv')
 
 # CMC
 
-crypto_json = get_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&limit=0')
+crypto_json = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&limit=0')
 
 # web app
 
