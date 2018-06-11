@@ -9,13 +9,16 @@ def cmc_flat(API):
 
     raw_file = requests.get(API).json()['data']
 
-    flat_file = raw_file
+    flat_file = []
 
     for key, value in raw_file.items():
-        flat_file[key] = flatten(raw_file[key])
+        flat_file.append(flatten(raw_file[key]))
 
-    return json.dumps(flat_file, sort_keys=True, indent=4, separators=(',', ': '))
+    sort_file = sorted(flat_file, key=lambda k: k['rank']) 
 
+    json_file = json.dumps(sort_file, sort_keys=True, indent=4, separators=(',', ': '), skipkeys=True)
+
+    return json_file
 
 def csv_dict(filename):
 
