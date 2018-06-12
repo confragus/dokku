@@ -58,6 +58,10 @@ def questionlist():
 def sheep():
     return render_template('sheep.html')
 
+@app.route('/ghibli')
+def ghibli():
+    return render_template('ghibli.html')
+
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 8000.
     port = int(os.environ.get('PORT', 8000))
