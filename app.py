@@ -62,6 +62,18 @@ def sheep():
 def ghibli():
     return render_template('ghibli.html')
 
+@app.route('/arith')
+def arith():
+    return render_template('arith.html')
+
+@app.route('/timer')
+def timer():
+    return render_template('timer.html')
+
+@app.route('/bricks')
+def bricks():
+    return render_template('bricks.html')
+
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 8000.
     port = int(os.environ.get('PORT', 8000))
