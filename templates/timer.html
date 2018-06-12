@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Sheep Quiz App</title>
+  <title>timer</title>
   
   <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/sheep.css') }}">
@@ -14,7 +14,14 @@
 
 <body>
 
-  <div>Registration closes in <span id="time">05:00</span> minutes!</div>
+  <form>
+    Minutes:
+    <input type="text" id="mns" name="mns" value="1" size="3" maxlength="3" />&nbsp; &nbsp; 
+    Seconds:
+    <input type="text" id="scs" name="scs" value="0" size="2" maxlength="2" />
+    <br/>
+    <input type="button" id="btnct" value="Add / Start" />
+  </form>Countdown Timer: &nbsp; <span id="showmns">00</span>:<span id="showscs">00</span>
 
   <script type = "text/javascript" 
          src = "{{ url_for('static', filename = 'js/timer.js') }}" ></script>

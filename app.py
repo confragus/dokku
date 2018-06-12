@@ -74,6 +74,10 @@ def timer():
 def bricks():
     return render_template('bricks.html')
 
+@app.route('/quiz')
+def quiz():
+    return render_template('quiz.html')
+
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 8000.
     port = int(os.environ.get('PORT', 8000))

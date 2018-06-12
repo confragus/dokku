@@ -14,10 +14,12 @@
 
     <div class="jumbotron">
       <h1 class="display-4">Web Portfolio</h1>
-      <p class="lead">This is a sample portfolio by Wilson.</p>
+      <p class="lead">This is a portfolio of web applications created by Wilson.</p>
     </div>
 
     <div class="list-group">
+      <a href="{{ url_for('quiz') }}" class="list-group-item list-group-item-action">Quiz</a>
+
       <a href="{{ url_for('timer') }}" class="list-group-item list-group-item-action">Timer</a>
 
       <a href="{{ url_for('bricks') }}" class="list-group-item list-group-item-action">bricks game</a>
