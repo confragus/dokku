@@ -37,9 +37,9 @@ def csv_json(file):
     # csv to dictionary
 
     csv_rows = []
-    with open(file) as csvfile:
+    with open(file, 'rU') as csvfile:
         reader = csv.DictReader(csvfile)
         title = reader.fieldnames
         for row in reader:
             csv_rows.extend([{title[i]:row[title[i]] for i in range(len(title))}])
-    return json.dumps(csv_rows, sort_keys=False, indent=4, separators=(',', ': '), encoding='ISO-8859-1')
+    return json.dumps(csv_rows, sort_keys=False, indent=4, separators=(',', ': '))

@@ -11,7 +11,7 @@ request.onload = function () {
   // Begin accessing JSON data here
   var data = JSON.parse(this.response);
 
-  question = data[Math.floor(Math.random() * 71)];
+  question = data[Math.floor(Math.random() * 3)];
 
   const q1 = document.createElement('p');
   q1.textContent = question.Q1;
