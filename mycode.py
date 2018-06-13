@@ -42,4 +42,4 @@ def csv_json(file):
         title = reader.fieldnames
         for row in reader:
             csv_rows.extend([{title[i]:row[title[i]] for i in range(len(title))}])
-    return json.dumps(csv_rows, sort_keys=False, indent=4, separators=(',', ': '))
+    return json.dumps(csv_rows, sort_keys=False, indent=4, separators=(',', ': '), encoding='ISO-8859-1')
