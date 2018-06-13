@@ -2,6 +2,7 @@ import os
 from mycode import csv_json, cmc_flat, cmc_json
 
 from flask import Flask, render_template, send_from_directory
+from flask_cors import CORS
 
 # Import question list
 
@@ -10,6 +11,7 @@ questions = csv_json('db/questionlist.csv')
 # web app
 
 app = Flask(__name__, static_url_path='')
+CORS(app)
 
 @app.route('/')
 def index():
