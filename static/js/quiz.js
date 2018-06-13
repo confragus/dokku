@@ -35,19 +35,19 @@ request.onload = function () {
 
   if (question.A1 != "") {
     const a1 = document.createElement('p');
-    a1.textContent = "A: " + question.A1;
+    a1.textContent = "A: " + question.A;
     app.appendChild(a1);
     
     const a2 = document.createElement('p');
-    a2.textContent = "B: " + question.A2;
+    a2.textContent = "B: " + question.B;
     app.appendChild(a2);
     
     const a3 = document.createElement('p');
-    a3.textContent = "C: " + question.A3;
+    a3.textContent = "C: " + question.C;
     app.appendChild(a3);
     
     const a4 = document.createElement('p');
-    a4.textContent = "D: " + question.A4;
+    a4.textContent = "D: " + question.D;
     app.appendChild(a4);
   };
 
