@@ -11,7 +11,7 @@ request.onload = function () {
   // Begin accessing JSON data here
   var data = JSON.parse(this.response);
 
-  question = data[Math.floor(Math.random() * 72)];
+  question = data[Math.floor(Math.random() * 71)];
 
   const q1 = document.createElement('p');
   q1.textContent = question.Q1;
@@ -54,6 +54,15 @@ request.onload = function () {
   const answer = document.createElement('p');
   answer.textContent = "Answer: " + question.Answer;
   app.appendChild(answer);
+
+  var textbox = document.createElement('input');
+  textbox.type = 'text';
+  app.appendChild(textbox);
+
+  var btn = document.createElement('BUTTON');
+  var t = document.createTextNode('submit');
+  btn.appendChild(t);
+  app.appendChild(btn);
 
 }
 
