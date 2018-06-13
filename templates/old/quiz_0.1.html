@@ -1,0 +1,23 @@
+<body>
+
+  <form>
+    Minutes:
+    <input type="text" id="mns" name="mns" value="1" size="3" maxlength="3" />&nbsp; &nbsp; 
+    Seconds:
+    <input type="text" id="scs" name="scs" value="0" size="2" maxlength="2" />
+    <br/>
+   
+    <input type="button" id="btnct" value="Add / Start" />
+  </form>Countdown Timer: &nbsp; <span id="showmns">00</span>:<span id="showscs">00</span>
+
+  <form id="root">
+    
+  </form>
+
+  <input type="button" id="btnct2" value="submit2" />
+
+  <script type = "text/javascript" src = "{{ url_for('static', filename = 'js/timer.js') }}" ></script>
+  <script type = "text/javascript" src = "{{ url_for('static', filename = 'js/quiz.js') }}" ></script>
+
+</body>
+

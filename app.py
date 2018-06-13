@@ -80,6 +80,10 @@ def bricks():
 def quiz():
     return render_template('quiz.html')
 
+@app.route('/js_quiz')
+def js_quiz():
+    return render_template('js_quiz.html')
+
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 8000.
     port = int(os.environ.get('PORT', 8000))

@@ -1,6 +1,7 @@
 var mns = document.getElementById('mns');
 var scs = document.getElementById('scs');
 var btcnt = document.getElementById('btnct');
+var btcnt2 = document.getElementById('btnct2');
 var showmns = document.getElementById('showmns');
 var showscs = document.getElementById('showscs');
 
@@ -25,6 +26,24 @@ function timer() {
 }
 
 btcnt.addEventListener('click', function () {
+    var s = parseInt(scs.value, 10);
+    var m = parseInt(mns.value, 10);
+    if (isNaN(s) || isNaN(m)) return;
+    scs.value = s;
+    mns.value = m;
+ 
+    var current = count;
+    count += (m * 60) + s;
+    
+    // only restart the counter loop if it was previously stopped
+    if (current <= 0) {
+        timer();
+    } else {
+        show();
+    }
+});
+
+btcnt2.addEventListener('click', function () {
     var s = parseInt(scs.value, 10);
     var m = parseInt(mns.value, 10);
     if (isNaN(s) || isNaN(m)) return;

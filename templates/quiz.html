@@ -1,35 +1,141 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="../static/css/quiz.css">
+</head>
+<body>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <h2>Quiz</h2>
 
-    <title>Quiz App</title>
-  </head>
-  <body>
-    <form>
-      Minutes:
-      <input type="text" id="mns" name="mns" value="1" size="3" maxlength="3" />&nbsp; &nbsp; 
-      Seconds:
-      <input type="text" id="scs" name="scs" value="0" size="2" maxlength="2" />
-      <br/>
-      <input type="button" id="btnct" value="Add / Start" />
-    </form>Countdown Timer: &nbsp; <span id="showmns">00</span>:<span id="showscs">00</span>
-    <div class="list-group">
+  <span id="showmns">00</span>:<span id="showscs">00</span>
 
-    </div>
-    <form id="root"></form>
+  <div id="start">
+    <button type="button" onclick="startquiz()">StartQuiz</button>
+  </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script type = "text/javascript" src = "{{ url_for('static', filename = 'js/timer.js') }}" ></script>
-    <script type = "text/javascript" src = "{{ url_for('static', filename = 'js/quiz.js') }}" ></script>
-  </body>
+  <div id="myQuiz" display="none">
+    <p id="qn_id"></p>
+    <p id="Q1"></p>
+    <p id="Q2"></p>
+    <p id="Answer"></p>
+    <form id="myForm" action="/action_page.php">
+      <input type="text" id="UserAnswer" value="Donald" display="none"><br>
+    </form>
+
+    <button type="button" onclick="submit()" id='btnct' display="none">submit</button>
+  </div>
+
+  <p id="Result"></p>
+  
+  <p id="demo"></p>
+
+  <script>
+    var myQuestions = "joy";
+    var data = {};
+    var qn_id = 0;
+
+    // Toggler
+
+    function hideshow(DIV) {
+        var x = document.getElementById(DIV);
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    hideshow('myQuiz');
+
+    // AJAX
+
+    function startquiz() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          data = JSON.parse(this.response);
+          updateqn();
+          starttimer();
+        }
+      };
+      xhttp.open("GET", "http://empirestreet.com.au/questionlist", true);
+      xhttp.send();
+      hideshow('start');
+      hideshow('myQuiz');
+    };
+
+    function updateqn() {
+      document.getElementById("Q1").innerHTML = data[qn_id].Q1;
+      document.getElementById("Q2").innerHTML = data[qn_id].Q2;
+      document.getElementById("Answer").innerHTML = data[qn_id].Answer;
+      qn_id += 1;  
+    }
+
+    function submit() {
+      updateqn();
+      starttimer();
+
+      if (document.getElementById("UserAnswer").value === "Donald") {
+        document.getElementById("Result").innerHTML = "Correct! Gained 90 Seconds";  
+      } else {
+        document.getElementById("Result").innerHTML = "Incorrect! No time gained"; 
+      };
+    };
+
+
+    // Clock Stuff
+
+    var mns = 0;
+    var scs = 5;
+    var btcnt = document.getElementById('btnct');
+    var showmns = document.getElementById('showmns');
+    var showscs = document.getElementById('showscs');
+
+    var count = 0;
+
+    function pad2(n) {
+        return n < 10 ? '0' + n : n;
+    };
+
+    function show() {
+        var s = count % 60;
+        var m = Math.floor(count / 60);
+        showmns.innerHTML = pad2(m);
+        showscs.innerHTML = pad2(s);
+        document.getElementById('qn_id').innerHTML = qn_id;
+    };
+
+    function timer() {
+        show();
+        if (count-- > 0) {
+            setTimeout(timer, 1000);
+        } else {
+          alert();
+        };
+
+    };
+    
+    function starttimer() {
+      var s = parseInt(scs, 10);
+      var m = parseInt(mns, 10);
+      if (isNaN(s) || isNaN(m)) return;
+      scs = s;
+      mns = m;
+   
+      var current = count;
+      if (document.getElementById("UserAnswer").value === "Donald") {
+        count += (m * 60) + s;
+      };
+
+      // only restart the counter loop if it was previously stopped
+      if (current <= 0) {
+          timer();
+      } else {
+          show();
+      };
+
+    };
+
+  </script>
+
+</body>
 </html>
