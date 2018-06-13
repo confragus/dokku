@@ -19,7 +19,7 @@
     <p id="Q2"></p>
     <p id="Answer"></p>
     <form id="myForm" action="/action_page.php">
-      <input type="text" id="UserAnswer" value="Donald" display="none"><br>
+      <input type="text" id="UserAnswer" display="none"><br>
     </form>
 
     <button type="button" onclick="submit()" id='btnct' display="none">submit</button>
@@ -30,9 +30,17 @@
   <p id="demo"></p>
 
   <script>
+
+    // Define Variables
+
     var myQuestions = "joy";
     var data = {};
     var qn_id = 0;
+    var q1 = document.getElementById("Q1");
+    var q2 = document.getElementById("Q2");
+    var answer = document.getElementById("Answer");
+    var userAnswer = document.getElementById("UserAnswer");
+    var result = document.getElementById("Result");
 
     // Toggler
 
@@ -64,28 +72,29 @@
     };
 
     function updateqn() {
-      document.getElementById("Q1").innerHTML = data[qn_id].Q1;
-      document.getElementById("Q2").innerHTML = data[qn_id].Q2;
-      document.getElementById("Answer").innerHTML = data[qn_id].Answer;
+      q1.innerHTML = data[qn_id].Q1;
+      q2.innerHTML = data[qn_id].Q2;
+      answer.innerHTML = data[qn_id].Answer;
       qn_id += 1;  
     }
 
     function submit() {
-      updateqn();
-      starttimer();
-
-      if (document.getElementById("UserAnswer").value === "Donald") {
-        document.getElementById("Result").innerHTML = "Correct! Gained 90 Seconds";  
+      
+      if (userAnswer.value.toLowerCase()  === data[qn_id-1].Answer.toLowerCase() ) {
+        result.innerHTML = "Correct! Gained 90 Seconds";  
+        starttimer();
       } else {
-        document.getElementById("Result").innerHTML = "Incorrect! No time gained"; 
+        result.innerHTML = "Incorrect! No time gained"; 
       };
+
+      updateqn();  
     };
 
 
     // Clock Stuff
 
     var mns = 0;
-    var scs = 5;
+    var scs = 10;
     var btcnt = document.getElementById('btnct');
     var showmns = document.getElementById('showmns');
     var showscs = document.getElementById('showscs');
@@ -122,9 +131,7 @@
       mns = m;
    
       var current = count;
-      if (document.getElementById("UserAnswer").value === "Donald") {
-        count += (m * 60) + s;
-      };
+      count += (m * 60) + s;
 
       // only restart the counter loop if it was previously stopped
       if (current <= 0) {
