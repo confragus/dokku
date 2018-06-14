@@ -75,18 +75,18 @@
       q1.innerHTML = data[qn_id].Q1;
       q2.innerHTML = data[qn_id].Q2;
       answer.innerHTML = data[qn_id].Answer;
-      qn_id += 1;  
+      userAnswer.value = "";
     }
 
     function submit() {
-      
-      if (userAnswer.value.toLowerCase()  === data[qn_id-1].Answer.toLowerCase() ) {
+      if (userAnswer.value.toLowerCase()  === data[qn_id].Answer.toLowerCase() ) {
         result.innerHTML = "Correct! Gained 90 Seconds";  
         starttimer();
       } else {
         result.innerHTML = "Incorrect! No time gained"; 
       };
 
+      qn_id += 1; 
       updateqn();  
     };
 

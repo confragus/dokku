@@ -6,7 +6,7 @@ from flask_cors import CORS
 
 # Import question list
 
-questions = csv_json('db/questionlist_0.1.csv')
+questions = csv_json('db/questionlist.csv')
 
 # web app
 
