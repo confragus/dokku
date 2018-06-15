@@ -86,6 +86,6 @@ def js_quiz():
     return render_template('js_quiz.html')
 
 if __name__ == '__main__':
-    # Bind to PORT if defined, otherwise default to 8000.
+    # Bind to PORT if defined, otherwise default to 80.
     port = int(os.environ.get('PORT', 8000))
     app.run(host='127.0.0.1', port=port)
