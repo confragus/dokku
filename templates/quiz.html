@@ -7,18 +7,49 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     }
-    #scoreCard p {display: inline}
-    #Debug p {display: inline}
+    #Debug p {display: inline;}
+    #Debug h5 {display: inline;}
+    #Debug {color:#777777; font-size: 10px;}
+
     img.make-it-fit {max-width: 99%; height: auto;}
-    #myQuiz {padding: 30px}
+    #myQuiz {
+      padding: 10px;
+      font-size: 14px;
+    }
     #toproot {
     flex: 1 1 50%;
     position: relative;
+    max-width: 400px;
+    margin:0 auto;
     }
     #topcontent {
       padding: 10px 30px 30px;
+      color:#333333;
     }
-
+    #scoreCard p {display: inline}
+    #scoreCard {
+      color: #444444,
+      padding: 10px 10px 10px;
+      border-bottom: 1px solid #efefef;
+      font-size: 10px;
+      width: 100%;
+    }
+    #left{
+      float:left;
+      width:100px; 
+      text-align: 
+      left;}
+    #right{
+      float:right;
+      width:100px; 
+      text-align: right;
+    }
+    #center{
+      margin:0 auto;
+      width:100px; 
+      text-align: 
+      center;}
+    #
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
 </head>
@@ -26,14 +57,15 @@
 
   <div id="toproot">
     <div id="topcontent">
-      <h2 style="color:#333333">Quiz</h2>
+      <h2>Quiz</h2>
 
-      <div id="scoreCard" style="color:#444444">
-        Time left: <span id="showmns">00</span>:<span id="showscs">00</span><br>
-        Score: <p id="p_score">0</p><br>
-        Total Marks: <p id="p_maxscore">0</p><br>
-        Accuracy: <p id="p_accuracy">0</p> %<br>
-        RealScore: <p id="p_realscore">0</p>
+      <div id="scoreCard">
+        <div id="left">
+          Accuracy: <p id="p_accuracy">0</p> %</div>
+        <div id="right">
+          Score: <p id="p_score">0</p>/<p id="p_maxscore">0</p></div>
+        <div id="center">
+          Time left: <span id="showmns">00</span>:<span id="showscs">00</span></div>
       </div>
 
       <div id="start" style="color:#666666">
@@ -55,16 +87,14 @@
         </div>
 
         <div id="MCButtons">
-          <button type="button" onclick="submit(0)" id='mc1'></button><br>
-          <button type="button" onclick="submit(1)" id='mc2'></button><br>
-          <button type="button" onclick="submit(2)" id='mc3'></button><br>
+          <button type="button" onclick="submit(0)" id='mc1'></button>
+          <button type="button" onclick="submit(1)" id='mc2'></button>
+          <button type="button" onclick="submit(2)" id='mc3'></button>
           <button type="button" onclick="submit(3)" id='mc4'></button>
         </div>
 
         <div id="Written">
-          <form id="myForm">
-            <input type="text" id="UserAnswer" display="none"><br>
-          </form>
+          <input type="text" id="UserAnswer" autocomplete="off"><br>
           <button type="button" onclick="submit('')" id='btnct' display="none">submit</button>
         </div>
 
@@ -72,8 +102,9 @@
 
       <p id="Result"></p>
       
-      <div id="Debug" style="color:#444444">
-        qn_id: <p id="qn_id"></p><br>
+      <div id="Debug">
+        <h5>Cheats</h5><br>
+        qn_id: <p id="qn_id">0</p><br>
         answer: <p id="Answer"></p><br>
         mcOrder: <p id="mcOrder"></p>
       </div>
@@ -228,11 +259,9 @@
       p_maxscore.innerHTML = maxscore; 
       accuracy = Math.round(score/maxscore*100);
       p_accuracy.innerHTML = accuracy;
-      realscore = Math.round(accuracy * score/100);
-      p_realscore.innerHTML = realscore;
-
 
       qn_id += 1; 
+      document.getElementById('qn_id').innerHTML = qn_id;
       updateqn();  
     };
 
@@ -256,7 +285,6 @@
         var m = Math.floor(count / 60);
         showmns.innerHTML = pad2(m);
         showscs.innerHTML = pad2(s);
-        document.getElementById('qn_id').innerHTML = qn_id;
     };
 
     function timer() {
@@ -275,12 +303,11 @@
       if (isNaN(s) || isNaN(m)) return;
       scs = s;
       mns = m;
-   
-      var current = count;
-      timegain = ((m * 60) + s)*parseInt(dataThis.Marks,10);
-      count += timegain
       
-
+      var current = count;
+      timegain = ((m * 60) + s) * parseInt(dataThis.Marks,10);
+      count += timegain;
+      
       // only restart the counter loop if it was previously stopped
       if (current <= 0) {
           timer();
@@ -292,7 +319,11 @@
 
   </script>
   <script type = "text/javascript" 
-         src = "{{ url_for('static', filename = 'js/quiz.js') }}" ></script>
+          src = "{{ url_for('static', filename = 'js/quiz.js') }}" >
+  </script>
+  <script type = "text/javascript" 
+          src = '../static/js/quiz.js' >
+  </script>
 
 </body>
 </html>
