@@ -176,11 +176,7 @@
         MCButtons.style.display = "block";
       };
 
-      // if (dataThis.Picture == "") {
-        customImageurl = "../static/img/qn/"+ dataThis.Picture +".png";
-      // } else {
-      //   customImageurl = "";
-      // }:
+      imageset(dataThis.Picture);
       loadGraphics();
     }
 
@@ -267,6 +263,8 @@
     };
 
   </script>
+  <script type = "text/javascript" 
+         src = "{{ url_for('static', filename = 'js/quiz.js') }}" ></script>
 
 </body>
 </html>
