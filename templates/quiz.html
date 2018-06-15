@@ -2,62 +2,84 @@
 <html>
 <head>
   <style>
-  #Debug p {display: inline}
-  img.make-it-fit {max-width: 99%; height: auto;}
+    html {
+    font-family: 'Nunito', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
+    #scoreCard p {display: inline}
+    #Debug p {display: inline}
+    img.make-it-fit {max-width: 99%; height: auto;}
+    #myQuiz {padding: 30px}
+    #toproot {
+    flex: 1 1 50%;
+    position: relative;
+    }
+    #topcontent {
+      padding: 10px 30px 30px;
+    }
+
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
 </head>
 <body>
 
-  <h2>Quiz</h2>
+  <div id="toproot">
+    <div id="topcontent">
+      <h2 style="color:#333333">Quiz</h2>
 
-  Time left: <span id="showmns">00</span>:<span id="showscs">00</span><br>
-  Score: <p id="p_score" style="display: inline">0</p><br>
-  Total Marks: <p id="p_maxscore" style="display: inline">0</p><br>
-  Accuracy: <p id="p_accuracy" style="display: inline">0</p> %<br>
-  RealScore: <p id="p_realscore" style="display: inline">0</p>
+      <div id="scoreCard" style="color:#444444">
+        Time left: <span id="showmns">00</span>:<span id="showscs">00</span><br>
+        Score: <p id="p_score">0</p><br>
+        Total Marks: <p id="p_maxscore">0</p><br>
+        Accuracy: <p id="p_accuracy">0</p> %<br>
+        RealScore: <p id="p_realscore">0</p>
+      </div>
 
-  <div id="start">
-    <button type="button" onclick="startquiz()">StartQuiz</button>
+      <div id="start" style="color:#666666">
+        <button type="button" onclick="startquiz()">StartQuiz</button>
+      </div>
+
+      <div id="myQuiz" style="color:#666666">
+
+        <p id="Marks"></p>
+
+        <p id="Q1"></p>
+        <p id="Q2"></p>
+        <p id="Q3"></p>
+        <p id="Q4"></p>
+        <p id="Q5"></p>
+
+        <div id="loadImage-wrap">
+          <img id="loadImage" max-width="100%" class='make-it-fit'/>
+        </div>
+
+        <div id="MCButtons">
+          <button type="button" onclick="submit(0)" id='mc1'></button><br>
+          <button type="button" onclick="submit(1)" id='mc2'></button><br>
+          <button type="button" onclick="submit(2)" id='mc3'></button><br>
+          <button type="button" onclick="submit(3)" id='mc4'></button>
+        </div>
+
+        <div id="Written">
+          <form id="myForm">
+            <input type="text" id="UserAnswer" display="none"><br>
+          </form>
+          <button type="button" onclick="submit('')" id='btnct' display="none">submit</button>
+        </div>
+
+      </div>
+
+      <p id="Result"></p>
+      
+      <div id="Debug" style="color:#444444">
+        qn_id: <p id="qn_id"></p><br>
+        answer: <p id="Answer"></p><br>
+        mcOrder: <p id="mcOrder"></p>
+      </div>
+    </div>
   </div>
 
-  <div id="myQuiz">
-
-    <p id="Marks"></p>
-
-    <p id="Q1"></p>
-    <p id="Q2"></p>
-    <p id="Q3"></p>
-    <p id="Q4"></p>
-    <p id="Q5"></p>
-
-    <div id="loadImage-wrap">
-      <img id="loadImage" max-width="100%" class='make-it-fit'/>
-    </div>
-
-    <div id="MCButtons">
-      <button type="button" onclick="submit(0)" id='mc1'></button><br>
-      <button type="button" onclick="submit(1)" id='mc2'></button><br>
-      <button type="button" onclick="submit(2)" id='mc3'></button><br>
-      <button type="button" onclick="submit(3)" id='mc4'></button>
-    </div>
-
-    <div id="Written">
-      <form id="myForm">
-        <input type="text" id="UserAnswer" display="none"><br>
-      </form>
-      <button type="button" onclick="submit('')" id='btnct' display="none">submit</button>
-    </div>
-
-  </div>
-
-  <p id="Result"></p>
-  
-  <div id="Debug">
-    qn_id: <p id="qn_id"></p><br>
-    answer: <p id="Answer"></p><br>
-    mcOrder: <p id="mcOrder"></p>
-  </div>
 
   <script>
   
@@ -197,8 +219,10 @@
         score = score + parseInt(dataThis.Marks,10);
         p_score.innerHTML = score;  
         result.innerHTML = "Correct! Gained "+ timegain +" seconds";
+        result.style.color = "#189398"
       } else {
-        result.innerHTML = "Incorrect! No time gained"; 
+        result.innerHTML = "Incorrect! No time gained";
+        result.style.color = "#E76C67" 
       };
       maxscore = maxscore + parseInt(dataThis.Marks,10);
       p_maxscore.innerHTML = maxscore; 
