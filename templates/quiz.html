@@ -2,6 +2,7 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="../static/css/quiz.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -17,6 +18,13 @@
     <p id="qn_id"></p>
     <p id="Q1"></p>
     <p id="Q2"></p>
+    <p id="Q3"></p>
+    <p id="Q4"></p>
+    <p id="Q5"></p>
+    <p id="A"></p>
+    <p id="B"></p>
+    <p id="C"></p>
+    <p id="D"></p>
     <p id="Answer"></p>
     <form id="myForm" action="/action_page.php">
       <input type="text" id="UserAnswer" display="none"><br>
@@ -38,6 +46,14 @@
     var qn_id = 0;
     var q1 = document.getElementById("Q1");
     var q2 = document.getElementById("Q2");
+    var q3 = document.getElementById("Q3");
+    var q4 = document.getElementById("Q4");
+    var q5 = document.getElementById("Q5");
+    var a = document.getElementById("A");
+    var b = document.getElementById("B");
+    var c = document.getElementById("C");
+    var d = document.getElementById("D");
+
     var answer = document.getElementById("Answer");
     var userAnswer = document.getElementById("UserAnswer");
     var result = document.getElementById("Result");
@@ -56,11 +72,16 @@
 
     // AJAX
 
+    function randomize(a, b) {
+      return Math.random() - 0.5;
+    }
+
     function startquiz() {
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-          data = JSON.parse(this.response);
+          rawdata = JSON.parse(this.response);
+          data = rawdata.sort(randomize);
           updateqn();
           starttimer();
         }
@@ -74,6 +95,13 @@
     function updateqn() {
       q1.innerHTML = data[qn_id].Q1;
       q2.innerHTML = data[qn_id].Q2;
+      q3.innerHTML = data[qn_id].Q3;
+      q4.innerHTML = data[qn_id].Q4;
+      q5.innerHTML = data[qn_id].Q5;
+      a.innerHTML = data[qn_id].A;
+      b.innerHTML = data[qn_id].B;
+      c.innerHTML = data[qn_id].C;
+      d.innerHTML = data[qn_id].D;
       answer.innerHTML = data[qn_id].Answer;
       userAnswer.value = "";
     }
