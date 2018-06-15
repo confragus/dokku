@@ -31,7 +31,7 @@
     <p id="Q5"></p>
 
     <div id="loadImage-wrap">
-      <img id="loadImage" />
+      <img id="loadImage"/>
     </div>
 
     <div id="MCButtons">
@@ -104,10 +104,12 @@
     var customImageurl = "../static/img/qn/gm20171.png";
 
     function loadGraphics(){
-        //v-- will not work! 
+
+      if (dataThis.Picture == "" ){
         document.getElementById("loadImage").src = defaultImageurl;
-        //v-- will work given your example conditions
+      } else {
         document.getElementById("loadImage").src = customImageurl;
+      }       
     }
 
     // Toggler
@@ -138,7 +140,7 @@
           starttimer();
         }
       };
-      xhttp.open("GET", "http://empirestreet.com.au/questionlist", true);
+      xhttp.open("GET", "http://localhost:8000/questionlist", true);
       xhttp.send();
       hide(start);
       display(myQuiz);
@@ -174,7 +176,11 @@
         MCButtons.style.display = "block";
       };
 
-      customImageurl = "../static/img/qn/"+ dataThis.Picture +".png";
+      // if (dataThis.Picture == "") {
+        customImageurl = "../static/img/qn/"+ dataThis.Picture +".png";
+      // } else {
+      //   customImageurl = "";
+      // }:
       loadGraphics();
     }
 
