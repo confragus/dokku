@@ -1,74 +1,126 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="../static/css/quiz.css">
+  <style>
+  #Debug p {display: inline}
+  </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
 </head>
 <body>
 
   <h2>Quiz</h2>
 
-  <span id="showmns">00</span>:<span id="showscs">00</span>
+  Time left: <span id="showmns">00</span>:<span id="showscs">00</span><br>
+  Score: <p id="p_score" style="display: inline">0</p><br>
+  Total Marks: <p id="p_maxscore" style="display: inline">0</p><br>
+  Accuracy: <p id="p_accuracy" style="display: inline">0</p> %<br>
+  RealScore: <p id="p_realscore" style="display: inline">0</p>
 
   <div id="start">
     <button type="button" onclick="startquiz()">StartQuiz</button>
   </div>
 
-  <div id="myQuiz" display="none">
-    <p id="qn_id"></p>
+  <div id="myQuiz">
+
+    <p id="Marks"></p>
+
     <p id="Q1"></p>
     <p id="Q2"></p>
     <p id="Q3"></p>
     <p id="Q4"></p>
     <p id="Q5"></p>
-    <p id="A"></p>
-    <p id="B"></p>
-    <p id="C"></p>
-    <p id="D"></p>
-    <p id="Answer"></p>
-    <form id="myForm" action="/action_page.php">
-      <input type="text" id="UserAnswer" display="none"><br>
-    </form>
 
-    <button type="button" onclick="submit()" id='btnct' display="none">submit</button>
+    <div id="loadImage-wrap">
+      <img id="loadImage" />
+    </div>
+
+    <div id="MCButtons">
+      <button type="button" onclick="submit(0)" id='mc1'></button><br>
+      <button type="button" onclick="submit(1)" id='mc2'></button><br>
+      <button type="button" onclick="submit(2)" id='mc3'></button><br>
+      <button type="button" onclick="submit(3)" id='mc4'></button>
+    </div>
+
+    <div id="Written">
+      <form id="myForm">
+        <input type="text" id="UserAnswer" display="none"><br>
+      </form>
+      <button type="button" onclick="submit('')" id='btnct' display="none">submit</button>
+    </div>
+
   </div>
 
   <p id="Result"></p>
   
-  <p id="demo"></p>
+  <div id="Debug">
+    qn_id: <p id="qn_id"></p><br>
+    answer: <p id="Answer"></p><br>
+    mcOrder: <p id="mcOrder"></p>
+  </div>
 
   <script>
-
+  
     // Define Variables
 
     var myQuestions = "joy";
     var data = {};
     var qn_id = 0;
+    var p_score = document.getElementById("p_score");
+    var p_maxscore = document.getElementById("p_maxscore");
+    var p_accuracy = document.getElementById("p_accuracy");
+    var p_realscore = document.getElementById("p_realscore");
+    var score = 0;
+    var maxscore = 0;
+    var accuracy = 0;
+    var realscore = 0;
+    var defaultImageurl = "";
+
+    var MCOrder = ['A','B','C','D'];
+
     var q1 = document.getElementById("Q1");
     var q2 = document.getElementById("Q2");
     var q3 = document.getElementById("Q3");
     var q4 = document.getElementById("Q4");
     var q5 = document.getElementById("Q5");
-    var a = document.getElementById("A");
-    var b = document.getElementById("B");
-    var c = document.getElementById("C");
-    var d = document.getElementById("D");
+    var mc1 = document.getElementById("mc1");
+    var mc2 = document.getElementById("mc2");
+    var mc3 = document.getElementById("mc3");
+    var mc4 = document.getElementById("mc4");
+
+    var MCButtons = document.getElementById("MCButtons");
+    var Written = document.getElementById("Written");
+    var start = document.getElementById("start");
+    var myQuiz = document.getElementById("myQuiz");
 
     var answer = document.getElementById("Answer");
     var userAnswer = document.getElementById("UserAnswer");
     var result = document.getElementById("Result");
+    var mcOrder = document.getElementById('mcOrder');
+    var marks = document.getElementById('Marks');
+
+    var orders = [];
+    var order = {};
+
+    var customImageurl = "../static/img/qn/gm20171.png";
+
+    function loadGraphics(){
+        //v-- will not work! 
+        document.getElementById("loadImage").src = defaultImageurl;
+        //v-- will work given your example conditions
+        document.getElementById("loadImage").src = customImageurl;
+    }
 
     // Toggler
 
-    function hideshow(DIV) {
-        var x = document.getElementById(DIV);
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
+    hide(myQuiz);
+
+    function display(x) {
+      x.style.display = "block";
     }
-    hideshow('myQuiz');
+
+    function hide(x){
+      x.style.display = "none";
+    }
 
     // AJAX
 
@@ -88,31 +140,67 @@
       };
       xhttp.open("GET", "http://empirestreet.com.au/questionlist", true);
       xhttp.send();
-      hideshow('start');
-      hideshow('myQuiz');
+      hide(start);
+      display(myQuiz);
     };
 
     function updateqn() {
-      q1.innerHTML = data[qn_id].Q1;
-      q2.innerHTML = data[qn_id].Q2;
-      q3.innerHTML = data[qn_id].Q3;
-      q4.innerHTML = data[qn_id].Q4;
-      q5.innerHTML = data[qn_id].Q5;
-      a.innerHTML = data[qn_id].A;
-      b.innerHTML = data[qn_id].B;
-      c.innerHTML = data[qn_id].C;
-      d.innerHTML = data[qn_id].D;
-      answer.innerHTML = data[qn_id].Answer;
+      dataThis = data[qn_id];
+
+      marks.innerHTML = "This question is worth: " + dataThis.Marks;
+
+      q1.innerHTML = dataThis.Q1;
+      q2.innerHTML = dataThis.Q2;
+      q3.innerHTML = dataThis.Q3;
+      q4.innerHTML = dataThis.Q4;
+      q5.innerHTML = dataThis.Q5;
+
+      order = MCOrder.sort(randomize);
+      orders[qn_id] = order; 
+      mcOrder.innerHTML = order;
+
+      mc1.innerHTML = dataThis[(order[0])];
+      mc2.innerHTML = dataThis[(order[1])];
+      mc3.innerHTML = dataThis[(order[2])];
+      mc4.innerHTML = dataThis[(order[3])];
+
+      answer.innerHTML = dataThis.Answer;
       userAnswer.value = "";
+      if (dataThis.A === ""){
+        MCButtons.style.display = "none";
+        Written.style.display = "block";
+      } else {
+        Written.style.display = "none";
+        MCButtons.style.display = "block";
+      };
+
+      customImageurl = "../static/img/qn/"+ dataThis.Picture +".png";
+      loadGraphics();
     }
 
-    function submit() {
-      if (userAnswer.value.toLowerCase()  === data[qn_id].Answer.toLowerCase() ) {
-        result.innerHTML = "Correct! Gained 90 Seconds";  
+    function submit(choice) {
+      if (choice == '') {
+        thisAnswer = userAnswer.value.toLowerCase();
+      } else {
+        thisAnswer = order[choice];
+      }
+      ;
+      if (thisAnswer.toLowerCase() === dataThis.Answer.toLowerCase() || 
+          parseFloat(thisAnswer) === parseFloat(dataThis.Answer)) {
         starttimer();
+        score = score + parseInt(dataThis.Marks,10);
+        p_score.innerHTML = score;  
+        result.innerHTML = "Correct! Gained "+ timegain +" seconds";
       } else {
         result.innerHTML = "Incorrect! No time gained"; 
       };
+      maxscore = maxscore + parseInt(dataThis.Marks,10);
+      p_maxscore.innerHTML = maxscore; 
+      accuracy = Math.round(score/maxscore*100);
+      p_accuracy.innerHTML = accuracy;
+      realscore = Math.round(accuracy * score/100);
+      p_realscore.innerHTML = realscore;
+
 
       qn_id += 1; 
       updateqn();  
@@ -146,7 +234,7 @@
         if (count-- > 0) {
             setTimeout(timer, 1000);
         } else {
-          alert();
+          // alert();
         };
 
     };
@@ -159,7 +247,9 @@
       mns = m;
    
       var current = count;
-      count += (m * 60) + s;
+      timegain = ((m * 60) + s)*parseInt(dataThis.Marks,10);
+      count += timegain
+      
 
       // only restart the counter loop if it was previously stopped
       if (current <= 0) {
@@ -174,3 +264,4 @@
 
 </body>
 </html>
+
