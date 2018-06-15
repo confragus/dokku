@@ -98,6 +98,7 @@
     var result = document.getElementById("Result");
     var mcOrder = document.getElementById('mcOrder');
     var marks = document.getElementById('Marks');
+    var loadImage = document.getElementById("loadImage");
 
     var orders = [];
     var order = {};
@@ -107,9 +108,11 @@
     function loadGraphics(){
 
       if (dataThis.Picture == "" ){
-        document.getElementById("loadImage").src = defaultImageurl;
+        hide(loadImage);
+        loadImage.src = defaultImageurl;
       } else {
-        document.getElementById("loadImage").src = customImageurl;
+        display(loadImage);
+        loadImage.src = customImageurl;
       }       
     }
 
