@@ -103,6 +103,18 @@
       color:#666666;
       width:195px;
     }
+    textarea {
+      width:100%;
+      resize: none;
+      overflow: hidden;
+      min-height: 10px;
+      font-family: 'Nunito', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background: #F6F6F6;
+      color: #666666;
+      border: none;
+    }
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
 </head>
@@ -170,7 +182,8 @@
         <h5>Cheats</h5><br>
         qn_id: <p id="qn_id">0</p><br>
         answer: <p id="Answer"></p><br>
-        mcOrder: <p id="mcOrder"></p>
+        mcOrder: <p id="mcOrder"></p><br>
+        <textarea id="t_explanation"></textarea>
       </div>
     </div>
   </div>
@@ -209,6 +222,7 @@
     var Written = document.getElementById("Written");
     var start = document.getElementById("start");
     var myQuiz = document.getElementById("myQuiz");
+    var t_explanation = document.getElementById("t_explanation");
 
     var answer = document.getElementById("Answer");
     var userAnswer = document.getElementById("UserAnswer");
@@ -223,6 +237,11 @@
     var order = {};
 
     var customImageurl = "../static/img/qn/gm20171.png";
+
+    function auto_grow(element) {
+        element.style.height = "5px";
+        element.style.height = (element.scrollHeight)+"px";
+    }
 
     function loadGraphics(){
 
@@ -296,6 +315,8 @@
       mc3.innerHTML = dataThis[(order[2])];
       mc4.innerHTML = dataThis[(order[3])];
 
+      t_explanation.innerHTML = dataThis.Solution;
+      auto_grow(t_explanation);
       answer.innerHTML = dataThis.Answer;
       userAnswer.value = "";
       if (dataThis.A === ""){
