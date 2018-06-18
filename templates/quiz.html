@@ -2,7 +2,7 @@
 <html>
 <head>
   <style>
-    p {
+    #dynamic-pan {
     white-space: pre-line; /* collapse WS, preserve LB */
     }
     html {
@@ -270,16 +270,6 @@
       x.style.display = "none";
     }
 
-    // MathJax
-
-    $(document).ready(function() {
-      var $el = $('#dynamic-pan')
-      $el.empty()
-      var x = 'bbc<span>\\(a = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)</span>'
-      $el.append(x)
-      MathJax.Hub.Queue(['Typeset', MathJax.Hub, $el[0]]);
-    });
-
     // AJAX
 
     function randomize(a, b) {
@@ -291,7 +281,9 @@
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           rawdata = JSON.parse(this.response);
-          data = rawdata.sort(randomize);
+          // Randomise disabled
+          // data = rawdata.sort(randomize);
+          data = rawdata;
           updateqn();
           starttimer();
         }
@@ -301,6 +293,10 @@
       hide(start);
       display(myQuiz);
     };
+
+    // MathJax
+
+    
 
     function updateqn() {
       dataThis = data[qn_id];
@@ -314,7 +310,17 @@
 
       marks.innerHTML = "Marks: " + dataThis.Marks;
 
-      q1.innerHTML = dataThis.Q1;
+      $(document).ready(function() {
+        var $el = $('#dynamic-pan')
+        $el.empty()
+        // var xxx = 'bbc<span>\\(a = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)</span>'
+        var yyy = dataThis.Q1
+        // $el.append(xxx)
+        $el.append(yyy)
+        MathJax.Hub.Queue(['Typeset', MathJax.Hub, $el[0]]);
+      });
+
+      // q1.innerHTML = dataThis.Q1;
 
       order = MCOrder.sort(randomize);
       orders[qn_id] = order; 
