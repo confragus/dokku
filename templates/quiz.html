@@ -66,7 +66,7 @@
 
         const p_id = document.createElement('h1');
         const p_marks = document.createElement('p');
-        const p_Q1 = document.createElement('p');
+        const p_question = document.createElement('p');
         const i_question = document.createElement('img');
         const input_user = document.createElement('input');
         const b_submit = document.createElement('button');
@@ -75,10 +75,11 @@
         const p_Solution = document.createElement('p');
 
         p_id.textContent = question.Subject + "-" + question.Year + " Q-"
-          + question.ID + question.ID2 + question.ID3;  
+          + question.ID + question.ID2;  
         // p_marks.textContent = "Marks: " + question.Marks;
-        p_Q1.textContent = question.Q1;
+        p_question.textContent = question.Question;
         
+        // Check if static html
         if (location.hostname === "") {
           i_question.setAttribute('src',"../static/img/qn/"+ question.Picture +".png");
         } else {
@@ -87,14 +88,14 @@
     
         p_Answer.textContent = question.A1;
         p_Solution.textContent = question.S1;
-        MathJax.Hub.Queue(['Typeset', MathJax.Hub, p_Q1]);
-        b_submit.addEventListener("click", myScript);
+        MathJax.Hub.Queue(['Typeset', MathJax.Hub, p_question]);
+        b_submit.addEventListener("click", myClickScript);
         b_submit.textContent = "submit"
 
         hide(p_Answer);
         hide(p_Solution);
 
-        function myScript() {
+        function myClickScript() {
           input_user.readOnly = true;
           if (input_user.value.toLowerCase() === question.A1.toLowerCase() || 
           parseFloat(input_user.value) === parseFloat(question.A1)) {
@@ -112,7 +113,7 @@
         // Each card will contain an h1 and a p
         card.appendChild(p_id);
         card.appendChild(p_marks);
-        card.appendChild(p_Q1);
+        card.appendChild(p_question);
         if( question.Picture != "") {
           card.appendChild(i_question);
         };
