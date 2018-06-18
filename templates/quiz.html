@@ -65,19 +65,45 @@
         card.setAttribute('class', 'card');
 
         const p_id = document.createElement('h1');
-        const p_marks = document.createElement('p');
         const p_question = document.createElement('p');
         const i_question = document.createElement('img');
-        const input_user = document.createElement('input');
-        const b_submit = document.createElement('button');
-        const p_result = document.createElement('p');
-        const p_Answer = document.createElement('p');
-        const p_Solution = document.createElement('p');
+        const p_q1 = document.createElement('p');
+        const p_q2 = document.createElement('p');
+        const p_q3 = document.createElement('p');
+        const i_q1 = document.createElement('input');
+        const i_q2 = document.createElement('input');
+        const i_q3 = document.createElement('input');
+        const b_q1 = document.createElement('button');
+        
+        const p_r1 = document.createElement('h5');
+        const p_r2 = document.createElement('h5');
+        const p_r3 = document.createElement('h5');
+
+        const p_a1 = document.createElement('h5');
+        const p_a2 = document.createElement('h5');
+        const p_a3 = document.createElement('h5');
+        const p_s1 = document.createElement('h5');
+        const p_s2 = document.createElement('h5');
+        const p_s3 = document.createElement('h5');
+
+        function marks(x){
+          if (x === '1'){
+            return " (" + x + " mark)"
+          } else {
+            return " (" + x + " marks)"
+          }
+        }
 
         p_id.textContent = question.Subject + "-" + question.Year + " Q-"
           + question.ID + question.ID2;  
-        // p_marks.textContent = "Marks: " + question.Marks;
         p_question.textContent = question.Question;
+        p_q1.textContent = question.Q1 + marks(question.M1);
+        p_q2.textContent = question.Q2 + marks(question.M2); 
+        p_q3.textContent = question.Q3 + marks(question.M3);
+        MathJax.Hub.Queue(['Typeset', MathJax.Hub, p_question]);
+        MathJax.Hub.Queue(['Typeset', MathJax.Hub, p_q1]);
+        MathJax.Hub.Queue(['Typeset', MathJax.Hub, p_q2]);
+        MathJax.Hub.Queue(['Typeset', MathJax.Hub, p_q3]);
         
         // Check if static html
         if (location.hostname === "") {
@@ -85,43 +111,79 @@
         } else {
           i_question.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.Picture +".png"); 
         };
-    
-        p_Answer.textContent = question.A1;
-        p_Solution.textContent = question.S1;
-        MathJax.Hub.Queue(['Typeset', MathJax.Hub, p_question]);
-        b_submit.addEventListener("click", myClickScript);
-        b_submit.textContent = "submit"
 
-        hide(p_Answer);
-        hide(p_Solution);
+        b_q1.addEventListener("click", myClickScript);
+        b_q1.textContent = "submit"
+
+        p_a1.textContent = "Answer is: " + question.A1;
+        p_a2.textContent = "Answer is: " + question.A2;
+        p_a3.textContent = "Answer is: " + question.A3;
+        p_s1.textContent = question.S1;
+        p_s2.textContent = question.S2;
+        p_s3.textContent = question.S3;
+        
+        hide(p_a1);
+        hide(p_a2);
+        hide(p_a3);
+        
+        hide(p_s1);
+        hide(p_s2);
+        hide(p_s3);
 
         function myClickScript() {
-          input_user.readOnly = true;
-          if (input_user.value.toLowerCase() === question.A1.toLowerCase() || 
-          parseFloat(input_user.value) === parseFloat(question.A1)) {
-            p_result.textContent = "Correct!";
+          // force answer on all inputs
+          if (i_q1.value ==="" || 
+              i_q2.value === "" && question.Q2 != "" || 
+              i_q3.value === "" && question.Q3 != "") {
+            return;
           } else {
-            p_result.textContent = "Incorrect!"
+            hide(b_q1);
+            checkAnswers(i_q1,question.A1,p_r1,p_a1,p_s1);
+            checkAnswers(i_q2,question.A2,p_r2,p_a2,p_s2);
+            checkAnswers(i_q3,question.A3,p_r3,p_a3,p_s3);
+          }
+        }
+
+        function checkAnswers(i_q,q_,p_r,p_a,p_s){
+          i_q.readOnly = true;
+          if (i_q.value.toLowerCase() === q_.toLowerCase() || 
+          parseFloat(i_q.value) === parseFloat(q_)) {
+            p_r.textContent = "Correct!";
+          } else {
+            p_r.textContent = "Incorrect!"
           };
-          show(p_Answer);
-          show(p_Solution);
+          show(p_a);
+          show(p_s);
         }
 
         // Append the cards to the container element
         container.appendChild(card);
 
-        // Each card will contain an h1 and a p
         card.appendChild(p_id);
-        card.appendChild(p_marks);
         card.appendChild(p_question);
         if( question.Picture != "") {
           card.appendChild(i_question);
         };
-        card.appendChild(input_user);
-        card.appendChild(b_submit);
-        card.appendChild(p_result);
-        card.appendChild(p_Answer);
-        card.appendChild(p_Solution);
+        card.appendChild(p_q1);
+        card.appendChild(i_q1);
+        card.appendChild(p_r1);
+        card.appendChild(p_a1);
+        card.appendChild(p_s1);
+        if (question.Q2 != "") {
+          card.appendChild(p_q2);
+          card.appendChild(i_q2);
+          card.appendChild(p_r2);
+          card.appendChild(p_a2);
+          card.appendChild(p_s2);
+        };
+        if (question.Q3 != "") {
+          card.appendChild(p_q3);
+          card.appendChild(i_q3);
+          card.appendChild(p_r3);
+          card.appendChild(p_a3);
+          card.appendChild(p_s3);
+        };
+        card.appendChild(b_q1);
       });
     }
     request.send();
