@@ -1,273 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <style>
-    #dynamic-pan {
-    white-space: pre-line; /* collapse WS, preserve LB */
-    }
-    p {
-    white-space: pre-line; /* collapse WS, preserve LB */
-    }
-    html {
-    font-family: 'Nunito', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background: #F6F6F6;
-    }
-    #toproot {
-    flex: 1 1 50%;
-    position: relative;
-    max-width: 400px;
-    margin:0 auto;
-    box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
-    transition: all .3s ease;
-    position: relative;
-    }
-    #topcontent {
-      padding: 10px 30px 30px;
-      color:#444444;
-    }
-    #topcontent h2 {
-      color:#444444; 
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    #Debug p {display: inline;}
-    #Debug h5 {display: inline;}
-    #Debug {
-      color:#777777; 
-      font-size: 10px;
-      border-top: 1px solid #efefef;
-    }
+  <title>Quiz App</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
 
-    img.make-it-fit {
-      max-width: 99%; 
-      height: auto;
-    }
-    #myQuiz, #start {
-      padding: 10px;
-      font-size: 14px;
-      color:#666666;
-    }
-
-    #scoreCard {
-      color: #666666,
-      padding: 10px 10px 10px;
-      border-bottom: 1px solid #efefef;
-      width: 100%;
-      font-size: 12px;
-    }
-    #scoreCard p, span {
-      display: inline;
-      color:#666666;
-      font-size: 12px;      
-    }
-    #left{
-      float:left;
-      width:100px; 
-      text-align: 
-      left;}
-    #right{
-      float:right;
-      width:100px; 
-      text-align: right;
-    }
-    #center{
-      margin:0 auto;
-      width:100px; 
-      text-align: center;
-      font-weight: bold;
-    }
-    #d_info{
-      font-size: 10px;
-    }
-    #d_result{
-      color: white;
-      padding: 3px;
-      padding-left: 10px;
-    }
-    button {
-      display: block;
-      font-size: 14px;
-      background: #eb8985;
-      border: 1px solid #F6F6F6;
-      padding: .4rem;
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-      text-align: left;
-      width: 100px;
-      padding-left: 10px;
-    }
-    button:hover,
-    button:focus {
-      background: darken(#eb8985, 10%);
-      border: 1px solid darken(#eb8985, 10%);
-    }
-    input {
-      font-family: 'Nunito', sans-serif;
-      font-size: 16px;
-      color:#666666;
-      width:195px;
-    }
-    textarea {
-      width:100%;
-      resize: none;
-      overflow: hidden;
-      min-height: 10px;
-      font-family: 'Nunito', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      background: #F6F6F6;
-      color: #666666;
-      border: none;
-    }
-  </style>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML"></script>
+
+  <style>
+    #root {
+    ; /* collapse WS, preserve LB */
+    }
+    #root img{
+      max-width:99%;
+      height:auto;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="../static/css/quiz.css">
+
 </head>
+
 <body>
 
-  <div id="toproot">
-    <div id="topcontent">
-      <h2>General Mathematics</h2>
-      <div id="scoreCard">
-        <div id="left">
-          <p>Accuracy: </p>
-          <p id="p_accuracy">%</p></div>
-        <div id="right">
-          <p>Score: </p>
-          <p id="p_score">0</p>
-          <p>/</p>
-          <p id="p_maxscore">0</p></div>
-        <div id="center">
-          <p>Time left: </p>
-          <span id="showmns">00</span>
-          <p>:</p>
-          <span id="showscs">00</span></div>
-      </div>
-
-      <div id="start">
-        <button type="button" onclick="startquiz()">StartQuiz</button>
-      </div>
-
-      <div id="myQuiz">
-        <div id="d_submit">
-          <div id="MCButtons">
-            <button type="button" onclick="submit(0)" id='mc1'></button>
-            <button type="button" onclick="submit(1)" id='mc2'></button>
-            <button type="button" onclick="submit(2)" id='mc3'></button>
-            <button type="button" onclick="submit(3)" id='mc4'></button>
-          </div>
-
-          <div id="Written">
-            <input type="text" id="UserAnswer" autocomplete="off"><br>
-            <button type="button" onclick="submit('')" id='btnct' display="none">Submit</button>
-          </div>
-        </div>
-        <div id="d_next">
-          <button type="button" onclick="next()" id='b_next' display="none">Next</button>
-        </div>
-
-        <div id="d_info">
-          <p id="Info"></p>
-          <p id="Marks"></p>
-        </div>
-        <div id="dynamic-pan"></div>
-        <p id="Q1"></p>
-
-        <div id="loadImage-wrap">
-          <img id="loadImage" max-width="100%" class='make-it-fit'/><br>
-        </div> 
-        <div id="d_result">
-          <p id="Result"></p>
-          <p id="p_submitted"></p>
-          <p id="Answer"></p>
-          <p id="t_explanation"></p> 
-        </div>
-      </div>    
-      
-      <div id="Debug">
-        <h5>Cheats</h5><br>
-        qn_id: <p id="qn_id">0</p><br>
-        
-        mcOrder: <p id="mcOrder"></p><br>
-        
-      </div>
-    </div>
-  </div>
-
-
+  <div id="root"></div>
   <script>
-  
-    // Define Variables
-
-    var myQuestions = "joy";
-    var data = {};
-    var qn_id = 0;
-    var p_score = document.getElementById("p_score");
-    var p_maxscore = document.getElementById("p_maxscore");
-    var p_accuracy = document.getElementById("p_accuracy");
-    var p_realscore = document.getElementById("p_realscore");
-    var score = 0;
-    var maxscore = 0;
-    var accuracy = 0;
-    var realscore = 0;
-    var defaultImageurl = "";
-
-    var MCOrder = ['A','B','C','D'];
-
-    var q1 = document.getElementById("Q1");
-    var mc1 = document.getElementById("mc1");
-    var mc2 = document.getElementById("mc2");
-    var mc3 = document.getElementById("mc3");
-    var mc4 = document.getElementById("mc4");
-
-    var MCButtons = document.getElementById("MCButtons");
-    var Written = document.getElementById("Written");
-    var start = document.getElementById("start");
-    var myQuiz = document.getElementById("myQuiz");
-    var t_explanation = document.getElementById("t_explanation");
-
-    var answer = document.getElementById("Answer");
-    var userAnswer = document.getElementById("UserAnswer");
-    var result = document.getElementById("Result");
-    var d_result = document.getElementById("d_result");
-    var mcOrder = document.getElementById('mcOrder');
-    var marks = document.getElementById('Marks');
-    var info = document.getElementById('Info');
-    var loadImage = document.getElementById("loadImage");
-    var p_submitted = document.getElementById("p_submitted");
-    var d_submit = document.getElementById("d_submit");
-    var d_result = document.getElementById("d_result");
-
-    var orders = [];
-    var order = {};
-
-    var customImageurl = "../static/img/qn/gm20171.png";
-
-    function auto_grow(element) {
-        element.style.height = "5px";
-        element.style.height = (element.scrollHeight)+"px";
-    }
-
-    function loadGraphics(){
-
-      if (dataThis.Picture == "" ){
-        hide(loadImage);
-        loadImage.src = defaultImageurl;
-      } else {
-        display(loadImage);
-        loadImage.src = customImageurl;
-      }       
-    }
-
-    // Toggler
-
-    hide(myQuiz);
-    hide(d_result);
-
-    function display(x) {
+    function show(x) {
       x.style.display = "block";
     }
 
@@ -275,204 +37,86 @@
       x.style.display = "none";
     }
 
-    // AJAX
+    // Access div in index.html
+    const app = document.getElementById('root');
 
-    function randomize(a, b) {
-      return Math.random() - 0.5;
-    }
+    // set up container
+    const container = document.createElement('div');
+    container.setAttribute('class', 'container');
 
-    function startquiz() {
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          rawdata = JSON.parse(this.response);
-          // Randomise disabled
-          // data = rawdata.sort(randomize);
-          data = rawdata;
-          updateqn();
-          starttimer();
+    // add logo and containder to the app root
+    app.appendChild(container);
+
+    // Create a request variable and assign a new XMLHttpRequest object to it.
+    var request = new XMLHttpRequest();
+
+    // Open a new connection, using the GET request on the URL endpoint
+    request.open('GET', 'http://empirestreet.com.au/questionlist', true);
+    request.onload = function () {
+
+    // Begin accessing JSON data here
+    var data = JSON.parse(this.response);
+
+      data.forEach(question => {
+        // Create a div with a card class
+        const card = document.createElement('div');
+        card.setAttribute('class', 'card');
+
+        const p_id = document.createElement('h1');
+        const p_marks = document.createElement('p');
+        const p_Q1 = document.createElement('p');
+        const i_question = document.createElement('img');
+        const input_user = document.createElement('input');
+        const b_submit = document.createElement('button');
+        const p_result = document.createElement('p');
+        const p_Answer = document.createElement('p');
+        const p_Solution = document.createElement('p');
+
+        p_id.textContent = question.Subject + "-" + question.Year + " Q-"
+          + question.ID + question.ID2 + question.ID3;  
+        // p_marks.textContent = "Marks: " + question.Marks;
+        p_Q1.textContent = question.Q1;
+        i_question.setAttribute('src',"../static/img/qn/"+ question.Picture +".png"); 
+        p_Answer.textContent = question.A1;
+        p_Solution.textContent = question.S1;
+        MathJax.Hub.Queue(['Typeset', MathJax.Hub, p_Q1]);
+        b_submit.addEventListener("click", myScript);
+        b_submit.textContent = "submit"
+
+        hide(p_Answer);
+        hide(p_Solution);
+
+        function myScript() {
+          input_user.readOnly = true;
+          if (input_user.value.toLowerCase() === question.A1.toLowerCase() || 
+          parseFloat(input_user.value) === parseFloat(question.A1)) {
+            p_result.textContent = "Correct!";
+          } else {
+            p_result.textContent = "Incorrect!"
+          };
+          show(p_Answer);
+          show(p_Solution);
         }
-      };
-      xhttp.open("GET", "http://empirestreet.com.au/questionlist", true);
-      xhttp.send();
-      hide(start);
-      display(myQuiz);
-    };
 
-    // MathJax  
+        // Append the cards to the container element
+        container.appendChild(card);
 
-    function updateqn() {
-      dataThis = data[qn_id];
-
-      info.innerHTML= "Year: " + 
-                      dataThis.Year + 
-                      " qn: " + 
-                      dataThis.ID + " "
-                      dataThis.ID2 + " "
-                      dataThis.ID3;
-
-      marks.innerHTML = "Marks: " + dataThis.Marks;
-
-      $(document).ready(function() {
-        var $el = $('#dynamic-pan')
-        $el.empty()
-        // var xxx = 'bbc<span>\\(a = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)</span>'
-        var yyy = dataThis.Q1
-        // $el.append(xxx)
-        $el.append(yyy)
-        MathJax.Hub.Queue(['Typeset', MathJax.Hub, $el[0]]);
-      });
-
-      // q1.innerHTML = dataThis.Q1;
-
-      order = MCOrder.sort(randomize);
-      orders[qn_id] = order; 
-      mcOrder.innerHTML = order;
-
-      mc1.innerHTML = dataThis[(order[0])];
-      mc2.innerHTML = dataThis[(order[1])];
-      mc3.innerHTML = dataThis[(order[2])];
-      mc4.innerHTML = dataThis[(order[3])];
-
-      t_explanation.innerHTML = dataThis.Solution;
-      auto_grow(t_explanation);
-      answer.innerHTML = "Answer: " + dataThis.Answer;
-      userAnswer.value = "";
-      if (dataThis.A === ""){
-        MCButtons.style.display = "none";
-        Written.style.display = "block";
-      } else {
-        Written.style.display = "none";
-        MCButtons.style.display = "block";
-      };
-
-      imageset(dataThis.Picture);
-      loadGraphics();
-    }
-
-    function submit(choice) {
-      if (choice == '') {
-        thisAnswer = userAnswer.value.toLowerCase();
-      } else {
-        thisAnswer = order[choice];
-      };
-
-      if (thisAnswer.toLowerCase() === dataThis.Answer.toLowerCase() || 
-          parseFloat(thisAnswer) === parseFloat(dataThis.Answer)) {
-        starttimer();
-        score = score + parseInt(dataThis.Marks,10);
-        p_score.innerHTML = score;  
-        result.innerHTML = "Correct! Gained "+ timegain +" seconds";
-
-        d_result.style.background = "#85eb89"
-      } else {
-        result.innerHTML = "Incorrect! No time gained";
-        d_result.style.background = "#eb8985" 
-      };
-      maxscore = maxscore + parseInt(dataThis.Marks,10);
-      p_maxscore.innerHTML = maxscore; 
-      accuracy = Math.round(score/maxscore*100);
-      p_accuracy.innerHTML = String(accuracy) + "%";
-
-      p_submitted.innerHTML = "Your Answer: " + thisAnswer.toLowerCase();
-      hide(d_submit);
-      display(d_next);
-      display(d_result);
-    };
-
-    function next(){
-      qn_id += 1; 
-      document.getElementById('qn_id').innerHTML = qn_id;
-      updateqn();  
-      display(d_submit);
-      hide(d_result);
-    }
-      
-    // Clock Stuff
-
-    var mns = 0;
-    var scs = 10;
-    var btcnt = document.getElementById('btnct');
-    var showmns = document.getElementById('showmns');
-    var showscs = document.getElementById('showscs');
-
-    var count = 0;
-
-    function pad2(n) {
-        return n < 10 ? '0' + n : n;
-    };
-
-    function show() {
-        var s = count % 60;
-        var m = Math.floor(count / 60);
-        showmns.innerHTML = pad2(m);
-        showscs.innerHTML = pad2(s);
-    };
-
-    function timer() {
-        show();
-        if (count-- > 0) {
-            setTimeout(timer, 1000);
-        } else {
-          // alert();
+        // Each card will contain an h1 and a p
+        card.appendChild(p_id);
+        card.appendChild(p_marks);
+        card.appendChild(p_Q1);
+        if( question.Picture != "") {
+          card.appendChild(i_question);
         };
-
-    };
-    
-    function starttimer() {
-      var s = parseInt(scs, 10);
-      var m = parseInt(mns, 10);
-      if (isNaN(s) || isNaN(m)) return;
-      scs = s;
-      mns = m;
-      
-      var current = count;
-      timegain = ((m * 60) + s) * parseInt(dataThis.Marks,10);
-      count += timegain;
-      
-      // only restart the counter loop if it was previously stopped
-      if (current <= 0) {
-          timer();
-      } else {
-          show();
-      };
-
-    };
-
-    (function () {
-      var script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = "/MathJax/MathJax.js";   // use the location of your MathJax
-
-      var config = 'MathJax.Hub.Config({' +
-                     'extensions: ["tex2jax.js"],' +
-                     'jax: ["input/TeX","output/HTML-CSS"]' +
-                   '});' +
-                   'MathJax.Hub.Startup.onload();';
-
-      if (window.opera) {script.innerHTML = config}
-                   else {script.text = config}
-
-      document.getElementsByTagName("head")[0].appendChild(script);
-    })();
-
-
-
-  </script>
-  <script type = "text/javascript" 
-    src = "{{ url_for('static', filename = 'js/quiz.js') }}" >
-  </script>
-  <script type = "text/javascript" 
-    src = '../static/js/quiz.js' >
-  </script>
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {inlineMath: [["\\(","\\)"]]}
-    });
-  </script>
-  <script type="text/javascript" async
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML">
+        card.appendChild(input_user);
+        card.appendChild(b_submit);
+        card.appendChild(p_result);
+        card.appendChild(p_Answer);
+        card.appendChild(p_Solution);
+      });
+    }
+    request.send();
   </script>
 </body>
-</html>
 
+</html>
