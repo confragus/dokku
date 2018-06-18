@@ -30,6 +30,7 @@
 
   <div id="root"></div>
   <script>
+
     function show(x) {
       x.style.display = "block";
     }
@@ -77,7 +78,13 @@
           + question.ID + question.ID2 + question.ID3;  
         // p_marks.textContent = "Marks: " + question.Marks;
         p_Q1.textContent = question.Q1;
-        i_question.setAttribute('src',"../static/img/qn/"+ question.Picture +".png"); 
+        
+        if (location.hostname === "") {
+          i_question.setAttribute('src',"../static/img/qn/"+ question.Picture +".png");
+        } else {
+          i_question.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.Picture +".png"); 
+        };
+    
         p_Answer.textContent = question.A1;
         p_Solution.textContent = question.S1;
         MathJax.Hub.Queue(['Typeset', MathJax.Hub, p_Q1]);
