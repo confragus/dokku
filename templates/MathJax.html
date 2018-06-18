@@ -1,0 +1,31 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML"></script>
+    </head>
+<body>
+
+
+//Static
+<div>
+  <span>\(x = {-b \pm \sqrt{b^2-4ac} \over 2a}\)</span> 
+</div>
+//Dynamic
+<div id="dynamic-pan"></div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+  var $el = $('#dynamic-pan')
+  $el.empty()
+  var x = 'bbc<span>\\(a = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)</span>'
+  $el.append(x)
+  $el.append('<span>\\(x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)</span>')
+  MathJax.Hub.Queue(['Typeset', MathJax.Hub, $el[0]]);
+});
+    </script>
+</body>
