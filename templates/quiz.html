@@ -2,6 +2,9 @@
 <html>
 <head>
   <style>
+    p {
+    white-space: pre-line; /* collapse WS, preserve LB */
+    }
     html {
     font-family: 'Nunito', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -160,10 +163,6 @@
         </div>
         <div id="dynamic-pan"></div>
         <p id="Q1"></p>
-        <p id="Q2"></p>
-        <p id="Q3"></p>
-        <p id="Q4"></p>
-        <p id="Q5"></p>
 
         <div id="loadImage-wrap">
           <img id="loadImage" max-width="100%" class='make-it-fit'/><br>
@@ -216,10 +215,6 @@
     var MCOrder = ['A','B','C','D'];
 
     var q1 = document.getElementById("Q1");
-    var q2 = document.getElementById("Q2");
-    var q3 = document.getElementById("Q3");
-    var q4 = document.getElementById("Q4");
-    var q5 = document.getElementById("Q5");
     var mc1 = document.getElementById("mc1");
     var mc2 = document.getElementById("mc2");
     var mc3 = document.getElementById("mc3");
@@ -319,11 +314,7 @@
 
       marks.innerHTML = "Marks: " + dataThis.Marks;
 
-      q1.innerHTML = test;
-      q2.innerHTML = dataThis.Q2;
-      q3.innerHTML = dataThis.Q3;
-      q4.innerHTML = dataThis.Q4;
-      q5.innerHTML = dataThis.Q5;
+      q1.innerHTML = dataThis.Q1;
 
       order = MCOrder.sort(randomize);
       orders[qn_id] = order; 
