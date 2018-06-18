@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Quiz App</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML"></script>
+
+  <style>
+    #root {
+    ; /* collapse WS, preserve LB */
+    }
+    #root img{
+      max-width:99%;
+      height:auto;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="../static/css/quiz.css">
+
+</head>
+
+<body>
+
+  <div id="root"></div>
+  <script>
+    function show(x) {
+      x.style.display = "block";
+    }
+
+    function hide(x){
+      x.style.display = "none";
+    }
+
+    // Access div in index.html
+    const app = document.getElementById('root');
+
+    // set up container
+    const container = document.createElement('div');
+    container.setAttribute('class', 'container');
+
+    // add logo and containder to the app root
+    app.appendChild(container);
+
+    // Create a request variable and assign a new XMLHttpRequest object to it.
+    var request = new XMLHttpRequest();
+
+    // Open a new connection, using the GET request on the URL endpoint
+    request.open('GET', 'http://empirestreet.com.au/questionlist', true);
+    request.onload = function () {
+
+    // Begin accessing JSON data here
+    var data = JSON.parse(this.response);
+
+      data.forEach(question => {
+        // Create a div with a card class
+        const card = document.createElement('div');
+        card.setAttribute('class', 'card');
+
+        const p_id = document.createElement('h1');
+        const p_marks = document.createElement('p');
+        const p_Q1 = document.createElement('p');
+        const i_question = document.createElement('img');
+        const input_user = document.createElement('input');
+        const b_submit = document.createElement('button');
+        const p_result = document.createElement('p');
+        const p_Answer = document.createElement('p');
+        const p_Solution = document.createElement('p');
+
+        p_id.textContent = question.Subject + "-" + question.Year + " Q-"
+          + question.ID + question.ID2 + question.ID3;  
+        p_marks.textContent = "Marks: " + question.Marks;
+        p_Q1.textContent = question.Q1;
+        i_question.setAttribute('src',"../static/img/qn/"+ question.Picture +".png"); 
+        p_Answer.textContent = question.Answer;
+        p_Solution.textContent = question.Solution;
+        MathJax.Hub.Queue(['Typeset', MathJax.Hub, p_Q1]);
+        b_submit.addEventListener("click", myScript);
+        b_submit.textContent = "submit"
+
+        hide(p_Answer);
+        hide(p_Solution);
+
+        function myScript() {
+          input_user.readOnly = true;
+          if (input_user.value.toLowerCase() === question.Answer.toLowerCase() || 
+          parseFloat(input_user.value) === parseFloat(question.Answer)) {
+            p_result.textContent = "Correct!";
+          } else {
+            p_result.textContent = "Incorrect!"
+          };
+          show(p_Answer);
+          show(p_Solution);
+        }
+
+        // Append the cards to the container element
+        container.appendChild(card);
+
+        // Each card will contain an h1 and a p
+        card.appendChild(p_id);
+        card.appendChild(p_marks);
+        card.appendChild(p_Q1);
+        if( question.Picture != "") {
+          card.appendChild(i_question);
+        };
+        card.appendChild(input_user);
+        card.appendChild(b_submit);
+        card.appendChild(p_result);
+        card.appendChild(p_Answer);
+        card.appendChild(p_Solution);
+      });
+    }
+    request.send();
+  </script>
+</body>
+
+</html>

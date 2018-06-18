@@ -5,6 +5,9 @@
     #dynamic-pan {
     white-space: pre-line; /* collapse WS, preserve LB */
     }
+    p {
+    white-space: pre-line; /* collapse WS, preserve LB */
+    }
     html {
     font-family: 'Nunito', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -128,11 +131,6 @@
   <div id="toproot">
     <div id="topcontent">
       <h2>General Mathematics</h2>
-      <p>
-        When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
-        $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
-      </p>
-
       <div id="scoreCard">
         <div id="left">
           <p>Accuracy: </p>
@@ -154,9 +152,23 @@
       </div>
 
       <div id="myQuiz">
-        <div id="d_result">
-          <p id="Result"></p>
+        <div id="d_submit">
+          <div id="MCButtons">
+            <button type="button" onclick="submit(0)" id='mc1'></button>
+            <button type="button" onclick="submit(1)" id='mc2'></button>
+            <button type="button" onclick="submit(2)" id='mc3'></button>
+            <button type="button" onclick="submit(3)" id='mc4'></button>
+          </div>
+
+          <div id="Written">
+            <input type="text" id="UserAnswer" autocomplete="off"><br>
+            <button type="button" onclick="submit('')" id='btnct' display="none">Submit</button>
+          </div>
         </div>
+        <div id="d_next">
+          <button type="button" onclick="next()" id='b_next' display="none">Next</button>
+        </div>
+
         <div id="d_info">
           <p id="Info"></p>
           <p id="Marks"></p>
@@ -166,30 +178,21 @@
 
         <div id="loadImage-wrap">
           <img id="loadImage" max-width="100%" class='make-it-fit'/><br>
+        </div> 
+        <div id="d_result">
+          <p id="Result"></p>
+          <p id="p_submitted"></p>
+          <p id="Answer"></p>
+          <p id="t_explanation"></p> 
         </div>
-
-        <div id="MCButtons">
-          <button type="button" onclick="submit(0)" id='mc1'></button>
-          <button type="button" onclick="submit(1)" id='mc2'></button>
-          <button type="button" onclick="submit(2)" id='mc3'></button>
-          <button type="button" onclick="submit(3)" id='mc4'></button>
-        </div>
-
-        <div id="Written">
-          <input type="text" id="UserAnswer" autocomplete="off"><br>
-          <button type="button" onclick="submit('')" id='btnct' display="none">submit</button>
-        </div>
-
-      </div>
-
-      
+      </div>    
       
       <div id="Debug">
         <h5>Cheats</h5><br>
         qn_id: <p id="qn_id">0</p><br>
-        answer: <p id="Answer"></p><br>
+        
         mcOrder: <p id="mcOrder"></p><br>
-        <textarea id="t_explanation"></textarea>
+        
       </div>
     </div>
   </div>
@@ -234,6 +237,9 @@
     var marks = document.getElementById('Marks');
     var info = document.getElementById('Info');
     var loadImage = document.getElementById("loadImage");
+    var p_submitted = document.getElementById("p_submitted");
+    var d_submit = document.getElementById("d_submit");
+    var d_result = document.getElementById("d_result");
 
     var orders = [];
     var order = {};
@@ -259,6 +265,7 @@
     // Toggler
 
     hide(myQuiz);
+    hide(d_result);
 
     function display(x) {
       x.style.display = "block";
@@ -292,9 +299,7 @@
       display(myQuiz);
     };
 
-    // MathJax
-
-    
+    // MathJax  
 
     function updateqn() {
       dataThis = data[qn_id];
@@ -331,7 +336,7 @@
 
       t_explanation.innerHTML = dataThis.Solution;
       auto_grow(t_explanation);
-      answer.innerHTML = dataThis.Answer;
+      answer.innerHTML = "Answer: " + dataThis.Answer;
       userAnswer.value = "";
       if (dataThis.A === ""){
         MCButtons.style.display = "none";
@@ -350,8 +355,8 @@
         thisAnswer = userAnswer.value.toLowerCase();
       } else {
         thisAnswer = order[choice];
-      }
-      ;
+      };
+
       if (thisAnswer.toLowerCase() === dataThis.Answer.toLowerCase() || 
           parseFloat(thisAnswer) === parseFloat(dataThis.Answer)) {
         starttimer();
@@ -369,12 +374,20 @@
       accuracy = Math.round(score/maxscore*100);
       p_accuracy.innerHTML = String(accuracy) + "%";
 
+      p_submitted.innerHTML = "Your Answer: " + thisAnswer.toLowerCase();
+      hide(d_submit);
+      display(d_next);
+      display(d_result);
+    };
+
+    function next(){
       qn_id += 1; 
       document.getElementById('qn_id').innerHTML = qn_id;
       updateqn();  
-    };
-
-
+      display(d_submit);
+      hide(d_result);
+    }
+      
     // Clock Stuff
 
     var mns = 0;
