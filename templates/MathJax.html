@@ -22,7 +22,7 @@
         $(document).ready(function() {
   var $el = $('#dynamic-pan')
   $el.empty()
-  var x = 'bbc<span>\\(a = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)</span>'
+  var x = 'bbc<br /><span>\\(a = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)</span>'
   $el.append(x)
   $el.append('<span>\\(x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)</span>')
   MathJax.Hub.Queue(['Typeset', MathJax.Hub, $el[0]]);
