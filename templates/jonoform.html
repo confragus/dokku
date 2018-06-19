@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Jono's Form</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
+
+    <!-- Stylin' -->
+    <style>
+
+      body {
+        background-color: #630e1c;
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+
+      h1 {
+        font-family: Raleway;
+        font-size: 60px;
+        color: #ffffff;
+        text-align: center;
+      }
+
+      p {
+        color: #1c1c1c;
+        font-family: Roboto Condensed;
+        font-size: 25px;
+        text-align: center;
+      }
+
+      button {
+        background-color: #1c1c1c;
+        font-family: Roboto Condensed;
+        border: none;
+        color: white;
+        text-align: center;
+        font-size: 25px;
+        padding: 10px 32px;
+      }
+
+      input {
+        width: 40%;
+        font-family: Roboto Condensed;
+        font-size: 25px;
+        text-align: center;
+      }
+
+      #inputArea {
+        background-color: #ffffff;
+        padding: 20px;
+        border-color: #1c1c1c;
+        border-width: 5px 30px;
+        border-style: solid;
+        text-align: center;
+      }
+
+      #text {
+        color: #ffffff;
+        font-family: Roboto Condensed;
+        font-size: 50px;
+        text-align: center;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <!-- HTML code -->
+    <h1>JONO'S FORM</h1>
+    <div id="inputArea">
+      <p>Please enter your name :</p>
+      <input type="text" id="myName" /><br><br>
+      <button id="buttonSubmit" onclick="greeting()">SUBMIT</button>
+    </div>
+
+    <p id="text"></p>
+
+    <!-- JavaScript Code -->
+    <script>
+      function greeting() {
+        var x = document.getElementById("myName").value;
+        document.getElementById("text").innerHTML = "Welcome, " + x;
+      }
+    </script>
+
+  </body>
+</html>

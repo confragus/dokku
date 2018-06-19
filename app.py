@@ -85,6 +85,10 @@ def quiz():
 def js_quiz():
     return render_template('js_quiz.html')
 
+@app.route('/jonoform')
+def jonoform():
+    return render_template('jonoform.html')
+
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 80.
     port = int(os.environ.get('PORT', 8000))

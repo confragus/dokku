@@ -1,5 +1,5 @@
 git add .
-git commit -m "ignore all db"
+git commit -m "jonoform"
 git push -u origin master
 git push dokku master
 
