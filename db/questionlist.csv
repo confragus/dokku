@@ -1,52 +1,280 @@
 Subject,Year,ID,ID2,Picture,Syllabus,A,B,C,D,Question,Q1,M1,A1,S1,Q2,M2,A2,S2,Q3,M3,A3,S3
-MG2,2017,1,,gm20171,DS4,15,20,30,35,The box-and-whisker plot for a set of data is shown.,What is the median of this set of data? ,1,C,,,,,,,,,
-MG2,2017,2,,,FSDr3,38,41.3,218.5,237.5,"A car is travelling at 95 km/h.How far will it travel in 2 hours and 30 minutes?",,1,D,,,,,,,,,
+MG2,2017,1,,gm20171,DS4,15,20,30,35,The box-and-whisker plot for a set of data is shown.,What is the median of this set of data?,1,C,,,,,,,,,
+MG2,2017,2,,,FSDr3,38,41.3,218.5,237.5,"A car is travelling at 95 km/h.
+
+How far will it travel in 2 hours and 30 minutes?",,1,D,,,,,,,,,
 MG2,2017,3,,gm20173,FSHe3,68,69,86,88,The graph shows the relationship between infant mortality rate (deaths per 1000 live births) and life expectancy at birth (in years) for different countries.,What is the life expectancy at birth in a country which has an infant mortality rate of 60?,1,A,,,,,,,,,
-MG2,2017,4,,,DS1,Random,Stratified,Systematic,Quantitative,"A factory's quality control department has tested every 50th item produced for possible defects.What type of sampling has been used?",,1,C,,,,,,,,,
-MG2,2017,5,,,DS6,60 000,67 500,74 980,75 000,"In a survey of 200 randomly selected Year 12 students it was found that 180 use social media.Based on this survey, approximately how many of 75 000 Year 12 students would be expected to use social media?",,1,B,,,,,,,,,
-MG2,2017,6,,,FM1,1112.5,1462.5,2225,2487.5,"Tom earns a weekly wage of $1025. He also receives an additional allowance of $87.50 per day when handling toxic substances.What is Tom's income in a fortnight in which he handles toxic substances on 5 separate days?",,1,D,,,,,,,,,
+MG2,2017,4,,,DS1,Random,Stratified,Systematic,Quantitative,"A factory's quality control department has tested every 50th item produced for possible defects.
+
+What type of sampling has been used?",,1,C,,,,,,,,,
+MG2,2017,5,,,DS6,60 000,67 500,74 980,75 000,"In a survey of 200 randomly selected Year 12 students it was found that 180 use social media.
+
+Based on this survey, approximately how many of 75 000 Year 12 students would be expected to use social media?",,1,B,,,,,,,,,
+MG2,2017,6,,,FM1,1112.5,1462.5,2225,2487.5,"Tom earns a weekly wage of $1025. He also receives an additional allowance of $87.50 per day when handling toxic substances.
+
+What is Tom's income in a fortnight in which he handles toxic substances on 5 separate days?",,1,D,,,,,,,,,
 MG2,2017,7,,,AM1,375.35,3246.08,9965.45,14948.18,"It is given that $$I = {3 \over 2}MR^2$$What is the value of I when M = 26.55 and R = 3.07, correct to two decimal places?",,1,A,,,,,,,,,
 MG2,2017,8,,gm20178,MM5,70 degrees 16 minutes,70 degrees 17 minutes,70 degrees 27 minutes,70 degrees 28 minutes,The diagram shows a right-angled triangle.,What is the value of \(\theta\) to the nearest minute?,1,B,,,,,,,,,
 MG2,2017,9,,,AM3,-13,-3,3,13,What is the value of x in the equation? $${5-x \over 3}=6$$,,1,A,,,,,,,,,
 MG2,2017,10,,gm201710,FM2,A,B,C,D,"A single amount of $10 000 is invested for 4 years, earning interest at the rate of 3% per annum, compounded monthly.",Which expression will give the future value of the investment?,1,D,,,,,,,,,
-MG2,2017,11,,,FSDR1,0.18,0.22,0.78,0.82,"A new car was bought for $19 900 and one year later its value had depreciated to $16 300.What is the approximate depreciation, expressed as a percentage of the purchase price?",,1,A,,,,,,,,,
+MG2,2017,11,,,FSDR1,0.18,0.22,0.78,0.82,"A new car was bought for $19 900 and one year later its value had depreciated to $16 300.
+
+What is the approximate depreciation, expressed as a percentage of the purchase price?",,1,A,,,,,,,,,
 MG2,2017,12,,gm201712,FShHe1,,,,,Which of the data sets graphed below has the largest positive correlation coefficient value?,,1,C,,,,,,,,,
-MG2,2017,13,,,DS5,-2,-0.5,0.5,2,"The heights of Year 12 girls are normally distributed with a mean of 165 cm and a standard deviation of 5.5 cm.What is the z-score for a height of 154 cm?",,1,A,,,,,,,,,
-MG2,2017,14,,,FSDr2,280,440,720,1000,"Kate is comparing two different models of car. Car A uses fuel at the rate of 9 L /100 km. Car B uses 3.5 L /100 km.Suppose Kate plans on driving 8000 km in the next year.How much less fuel will she use driving car B instead of car A?",,1,B,,,,,,,,,
-MG2,2017,15,,,PB1,43191,43376,44013,43132,"The faces on a twenty-sided die are labelled $0.05, $0.10, $0.15, ... ,$1.00.The die is rolled once.What is the probability that the amount showing on the upper face is more than 50 cents but less than 80 cents?",,1,A,,,,,,,,,
-MG2,2017,16,,,FSRe3,823,2469,4938,14814,"The benchmark for annual greenhouse gas emissions from the residential sector is 3,292 kg of carbon dioxide per person per year.A new building, planned to house 6 people, has been designed to achieve a 25% reduction on this benchmark.What is the maximum amount of carbon dioxide per year, to the nearest kilogram, that this building is designed to emit when fully occupied?",,1,D,,,,,,,,,
+MG2,2017,13,,,DS5,-2,-0.5,0.5,2,"The heights of Year 12 girls are normally distributed with a mean of 165 cm and a standard deviation of 5.5 cm.
+
+What is the z-score for a height of 154 cm?",,1,A,,,,,,,,,
+MG2,2017,14,,,FSDr2,280,440,720,1000,"Kate is comparing two different models of car. Car A uses fuel at the rate of 9 L /100 km. Car B uses 3.5 L /100 km.
+
+Suppose Kate plans on driving 8000 km in the next year.
+
+How much less fuel will she use driving car B instead of car A?",,1,B,,,,,,,,,
+MG2,2017,15,,,PB1,43191,43376,44013,43132,"The faces on a twenty-sided die are labelled $0.05, $0.10, $0.15, ... ,$1.00.
+
+The die is rolled once.
+
+What is the probability that the amount showing on the upper face is more than 50 cents but less than 80 cents?",,1,A,,,,,,,,,
+MG2,2017,16,,,FSRe3,823,2469,4938,14814,"The benchmark for annual greenhouse gas emissions from the residential sector is 3,292 kg of carbon dioxide per person per year.
+
+A new building, planned to house 6 people, has been designed to achieve a 25% reduction on this benchmark.
+
+What is the maximum amount of carbon dioxide per year, to the nearest kilogram, that this building is designed to emit when fully occupied?",,1,D,,,,,,,,,
 MG2,2017,17,,gm201717,AM4,"(0,6)","(1,4)","(2,2)","(3,0)",The graph of the line with equation y = 6 - 2x is shown.,"When the graph of the line with equation y = x + 3 is also drawn on this number plane, what will be the point of intersection of the two lines?",1,B,,,,,,,,,
 MG2,2017,18,,gm201718,MM2,5.4,7.776,10.8,15.552,"A skip bin is in the shape of a trapezoidal prism, with dimensions as shown.",What is the volume of the skip bin?,1,A,,,,,,,,,
 MG2,2017,19,,gm201719,FSHe2,6,8,10,12,"Young's formula, shown below, is used to calculate the dosage of medication for children aged 1-12 years based on the adult dosage.",How old is the child in years?,1,D,,,,,,,,,
 MG2,2017,20,,gm201720,AM2,25,24,21,20,,"Continuing this pattern, what is the maximum number of complete pentagons that can be formed if 100 matches in total are available?",1,B,,,,,,,,,
-MG2,2017,21,,,MM1,30.45m,30.49m,30.495m,30.499m,"The length of a netball court is measured to be 30.50 metres, correct to the nearest centimetre.What is the lower limit for the length of the netball court?",,1,C,,,,,,,,,
+MG2,2017,21,,,MM1,30.45m,30.49m,30.495m,30.499m,"The length of a netball court is measured to be 30.50 metres, correct to the nearest centimetre.
+
+What is the lower limit for the length of the netball court?",,1,C,,,,,,,,,
 MG2,2017,22,,gm201722,MM4,0.06,0.09,0.7,0.99,A concrete water pipe is manufactured in the shape of an annular cylinder. The dimensions are shown in the diagrams.,What is the approximate volume of concrete needed to make the water pipe?,1,C,,,,,,,,,
 MG2,2017,23,,,FSCo2,2^40,2^41,2^43,2^44,How many bits are there in 2 terabytes,,1,D,,,,,,,,,
-MG2,2017,24,,,PB2,0.0498,0.181,0.355,0.362,"A deck of 52 playing cards contains 12 picture cards. Two cards from the deck are drawn at random and placed on a table.What is the probability, correct to four decimal places, that exactly one picture card is on the table?",,1,D,,,,,,,,,
+MG2,2017,24,,,PB2,0.0498,0.181,0.355,0.362,"A deck of 52 playing cards contains 12 picture cards. Two cards from the deck are drawn at random and placed on a table.
+
+What is the probability, correct to four decimal places, that exactly one picture card is on the table?",,1,D,,,,,,,,,
 MG2,2017,25,,gm201725,MM6,8.9,11.3,17.7,25.1,"In the circle, centre O, the area of the quadrant is 100 cm2.","What is the arc length l, correct to one decimal place?",1,C,,,,,,,,,
-MG2,2017,26,a,,FSRe3,,,,,"Electricity costs $0.27 per kWh.How much does 20 kWh cost?",,1,5.4,"$0.27 - 20= $5.40",,,,,,,,
-MG2,2017,26,b,gm201726b,FSCo1,,,,,"Toby's mobile phone plan costs $20 per month, plus the cost of all calls. Calls are charged at the rate of 70 cents per 30 seconds, or part thereof. There is also a call connection fee of 50c per call.Here is a record of all his calls in July.",How much is Toby's mobile phone bill for July?,2,27.1,"Cost = $20 + $0.50 - 3 + $0.70 + $1.40 + $3.50= $27.10",,,,,,,,
-MG2,2017,26,c,,DS6,,,,,"A farmer needed to estimate the number of goats on his property. He tagged 80 of his goats. Later, he collected a random sample of 45 goats and found that 16 of these had tags.Estimate the number of goats the farmer has on his property.",,2,225,"Let N be the number of goats.16/45 = 80/NN = (80*45)/16= 225- The estimated number of goats the farmer has on his property is 225.",,,,,,,,
-MG2,2017,26,d,gm201726d,MM3,,,,,A sewer pipe needs to be placed into the ground so that it has a 2 degrees angle of depression. The length of the pipe is 15 000 mm.,How much deeper should one end of the pipe be compared to the other end? Answer to the nearest mm.,2,523,"Let x be the required depth.sin2 = x/15000= 15000 sin2= 523.4...= 523 mm (to the nearest mm)",,,,,,,,
-MG2,2017,26,e,,FM2,,,,,"Sam purchased 500 company shares at $3.20 per share. Brokerage fees were 1.5% of the purchase price.Sam is paid a dividend of 26 cents per share, then immediately sells the shares for $4.80 each.If he pays no further brokerage fees, what is Sam's total profit?",,3,906,"Share cost = 500 - 3.20= $1600Brokerage = 1.5% - 1600= $24Total cost = $1624Share selling price = 500 - 4.80= $2400Dividend = 0.26 - 500= $130Total proceeds = 2400 + 130= $2530Total profit = 2530 - 1624= $906",,,,,,,,
-MG2,2017,26,f,gm201726f,DS4,,,,,"The area chart shows the number of goals scored by three hockey teams, A, Band C, in the first 4 rounds.",How many goals were scored by team C in round 1?,1,4,,In which round did all three teams score the same number of goals?,1,3,,,,,
-MG2,2017,26,g,,FM4,,,,,"Rachel bought a motorcycle advertised for $7990. She paid a $500 deposit and took out a flat-rate loan to repay the balance. Simple interest was charged at a rate of 7% per annum on the amount borrowed. She repaid the loan over 2 years, making equal weekly repayments.Calculate the weekly repayment.",,3,82.1,"Amount borrowed = 7990 - 500= $7490Interest = 7490 - 0.07 - 2= $1048.60Repayment = (7490 + 1048.60) / (2 - 52)= $82.10 per week",,,,,,,,
-MG2,2017,27,a,,FSRel,,,,,"Jamal surveyed eight households in his street. He asked them how many kilolitres (kL) of water they used in the last year. Here are the results. 220, 105, 101, 450, 37, 338, 151, 205 ",Calculate the mean of this set of data.,1,200.875,Mean = 200.875 kL,"What is the standard deviation of this set of data, correct to one decimal place?",1,127.4,,,,,
-MG2,2017,27,b,,FSCo2,,,,,How many 20 megabyte files can fit on a 3 terabyte external hard disc?,,2,157286,"3 terabytes = 3 - 2^40 bytes20 megabytes = 20 - 2^20 bytesNumber of files =(3 - 2^40)/(20 - 2^20)=157 286.4 ",,,,,,,,
-MG2,2017,27,c,gm201727c,FM5,,,,,"A table of future value interest factors for an annuity of $1 is shown. An annuity involves contributions of $12 000 per annum for 5 years. Theinterest rate is 4% per annum, compounded annually. ",Calculate the future value of this annuity.,1,64995.6,"Future value = 12 000 - 5.4163 = $64 995.60 ",Calculate the interest earned on this annuity.,1,4995.6,"Interest earned = 64 995.60 - (5 - 12 000) = $4995.60 ",,,,
-MG2,2017,27,d,gm201727d,MM6,,,,,"Island A and island B are both on the equator. Island B is west of island A. The longitude of island A is 5\(^{\circ}\)E and the angle at the centre of Earth (O), between A and B, is 30\(^{\circ}\).",What is the longitude of island B? Answer in the format XXdegreesY (eg 10degreesS),1,25degreesW,,What time is it on island B when it is 10 am on island A?,1,8am,"Time difference = 15= 2 hoursTime on island B = 10 am - 2 hours= 8 am ",How long will the ship take to arrive at island B? Give your answer in days and hours to the nearest hour.,3,3 days 12 hours,"Distance = 30/360 * 2pi * 6400= 3351.0..kmTime = 3351.0../40 hours= 83.7..hours= 83.7../ 24 days= 3.490658504 days= 3 days + (0.490658504 x 24) hours= 3 days + 11.7..hours= 3 days 12 hours (nearest hour) "
-MG2,2017,27,e,,FSDr3,,,,,"Rhys is drinking low alcohol beer at a party over a five-hour period. He reads on the label of the low alcohol beer bottle that it is equivalent to 0.8 of a standard drink.Rhys weighs 90 kg.What is the maximum number of complete bottles of the low alcohol beer he can drink to remain under a Blood Alcohol Content (BAC) of 0.05?",,4,8,"BAC male = (10N-7.5H)/(6.8M)0.05 = (10N - 7.5*5)/(6.8*90) 6.8 - 90 - 0.05 = 10N - 7.5 - 510N = 7.5 - 5 + 6.8 - 90 - 0.05N = 6.81 ie 6.81 standard drinks Number of bottles = 6.81/0.8 = 8.5125",,,,,,,,
-MG2,2017,28,a,gm201728aiii,AM1,,,,, Temperature can be measured in degrees Celsius (C) or degrees Fahrenheit (F). The two temperature scales are related by the equation shown.$$F={9C \over 5}+32$$,Calculate the temperature in degrees Fahrenheit when it is -20 degrees Celsius. ,1,-4,"F=(9*(-20))/5 + 32F = -4","Solve the following equations simultaneously, using either the substitution method or the elimination method. $$F={9C \over 5}+32 \\ F=C$$",2,-40,"C = 9C/5 + 325C = 9C + 160-160 = 4CC = -40",Where does the graph intersect?,1,"(-40,-40)","The two lines intersect at ( -40 , -40 ). "
-MG2,2017,28,b,,PB2,,,,,Five people are in a team. Two of them are selected at random to attend a competition. ,How many different groups of two can be selected?,1,10,(5*4)/2 = 10 groups of two,"If Mary is one of the five people in the team, what is the probability that she is selected to attend the competition?",1,0.4,"Four of the ten possible groups include Mary (ie a group including Mary and one of the other 4 team members).The probability = 4/10  = 0.4 ",,,,
-MG2,2017,28,c,,FM4,,,,,"Michelle borrows $100 000. The interest rate charged is 12% per annum compounded monthly. The monthly payment is $1029 and the first repayment is made after one month.What is the amount outstanding immediately after the SECOND monthly repayment is made?",,3,99941.71,"Amount owing after first month = 100000*(1+0.12/12)-1029 = 99971Amount owing after second month = 99971*(1+0.12/12)-1029 = 99941.71",,,,,,,,
-MG2,2017,28,d,,AM3,,,,,Make y the subject of the equation $$x=\sqrt{yp-1}$$,,2,y=(x^2+1)/p,"x2 = yp - 1 x2 + 1 = yp y=(x^2+1)/p",,,,,,,,
-MG2,2017,28,e,gm201728e,AM5,,,,,"A movie theatre has 200 seats. Each ticket currently costs $8. The theatre owners are currently selling all 200 tickets for each session. They decide to increase the price of tickets to see if they can increase the income earned from each movie session.It is assumed that for each one dollar increase in ticket price, there will be 10 fewer tickets sold.A graph showing the relationship between an increase in ticket price and the income is shown below. ",What ticket price should be charged to maximise the income from a movie session?,1,14,"From the graph, the income is maximised when the increase in ticket price is $6.- the ticket price should be $8 + $6 = $14 ",What is the number of tickets sold when the income is maximised?,1,140,200 - 10 - 6 = 140 tickets ,"The cost to the theatre owners of running each session is $500 plus $2 per ticket sold. Calculate the profit earned by the theatre owners when the income earned from a session is maximised.",2,1180,"Income = 140 - $14 = $1960Cost = 140 - $2 + $500 = $780Profit = $1960 - $780 = $1180 "
-MG2,2017,29,a,gm201729a,FSRe2,,,,,"A new 200-metre long dam is to be built.The plan for the new dam shows evenly spaced cross-sectional areas. ","Using TWO applications of Simpson's rule, calculate the volume of the dam in m\(^{3}\).",2,44333,"h = 200/4 = 50V = 50/3* (0 + 4*140 + 270) + 50/3 *(270 + 4*300 + 360)=44333.33..=44333","It is known that the catchment area for this dam is 2 km\(^{2}\).Calculate how much rainfall is needed, to the nearest mm, to fill the dam.",2,22," 2 km2 = 2 - 1000 - 1000= 2 000 000 m2V = Ah44 333 = 2 000 000 - h44 333 h =2 000 000= 0.0221..m= 22 mm (nearest mm) ",,,,
-MG2,2017,29,b,gm201729b,FM3,,,,,"Sabrina's taxable income is $86 725 in a particular year. The table below is used to calculate her tax payable. In addition, she pays the Medicare levy, which is 2% of her taxable income. Calculate Sabrina's net income in that year.",,3,65257.87,"Tax payable = 3572 + 0.325(86 725 - 37 000)= $19 732.63Medicare levy = 2% - 86 725= $1734.50Total payable = 19 732.63 + 1734.50= $21 467.13- Net income = 86 725 - 21 467.13= $65 257.87",,,,,,,,
-MG2,2017,29,c,gm201729c,DS4,,,,,"A group of Year 12 students was surveyed. The students were asked whether they live in the city or the country. They were also asked if they have ever waterskied.The results are recorded in the table. ","A person is selected at random from the group surveyed. Calculate the probability that the person lives in the city and has never waterskied (to the nearest percentage).",2,71%,"Number of students surveyed = 3520Probability = 2500/3520= 125/176= 71%","A newspaper article claimed that Year 12 students who live in the country are more likely to have waterskied than those who live in the city.Is this true, based on the survey results?",2,TRUE,"Country students who have water skied: 70/ 870- 100 = 8.04..%150 City students who have water skied: 150/ 2650 - 100 = 5.66..%The claim in the newspaper article is true. ",,,,
-MG2,2017,29,d,gm201729d,DS3,,,,,"All the students in a class of 30 did a test.The marks, out of 10, are shown in the dot plot. ",Find the median test mark. ,1,6,"15th mark is 4.16th mark is 8.Median = (4+8)/2 = 6 ","The mean test mark is 5.4 . The standard deviation of the test marks is 4.22.Using the dot plot, calculate the percentage of the marks which lie within one standard deviation of the mean.",2,43.30%,"Mean minus standard deviation = 5.4 - 4.22 = 1.18Mean plus standard deviation = 5.4 + 4.22 = 9.62 Percentage of marks between 1.18 and 9.62 = (2 + 2 + 2 + 1 + 6)/30 = 43.3% (1 decimal place) ","A student states that for any data set, 68% of the scores should lie within one standard deviation of the mean.With reference to the dot plot, explain why the student's statement is NOT relevant in this context.",1,not normally distributed,"The dot plot does not show a normally distributed data set, so the statement is not relevant. "
-MG2,2017,30,a,,DS4,,,,,"A set of data has a lower quartile (QL) of 10 and an upper quartile (QU) of 16. What is the maximum possible range for this set of data if there are no outliers? ",,2,24,"Interquartile range (IQR) = QU - QL= 16 - 10= 6 Lower bound = QL - 1.5 - IQR= 10 - 1.5 - 6= 1 Upper bound = QU + 1.5 - IQR= 16 + 1.5 - 6= 25- Range = 25 - 1= 24 ",,,,,,,,
-MG2,2017,30,b,,AM5,,,,,"The cost of a jewellery box varies directly with the cube of its height. A jewellery box with a height of 10 cm costs $50.Calculate the cost of a jewellery box with a height of 12 cm.",,2,86.4,"Let C be the cost of the jewellery box.Let h be the height of the jewellery box.C = kh^3 where k is a constant.50 = k * 10^3k = 0.05When h=12cost, C = 0.05 * 12^3= $86.40 ",,,,,,,,
-MG2,2017,30,c,gm201730c,MM5,,,,,"The diagram shows the location of three schools. School A is 5 km due north of school B, school C is 13 km from school B and ABC is 135\(^{\circ}\). ","Calculate the shortest distance from school A to school C, to the nearest kilometre.",2,17,"AC^2 = 13^2 + 5^2 - 2 - 5 - 13 - cos135 = 285.92..AC = sqrt(285.92..) = 16.9..= 17 km (nearest kilometre) ","Determine the bearing of school C from school A, to the nearest degree.",3,213,"sinA/13 = sin135/17sinA = 13sin135/17=0.5407A = 32.7..=33The bearing of school C from chool A is 180+33=213",,,,
-MG2,2017,30,d,gm201730d,AM1,,,,,"In an investigation, students used different numbers of identical small solar panels to power model cars. The cars were then tested and their speed measured in km/h. The results are summarised in the table.The equation of the least-squares line of best fit, relating the speed and the number of solar panels, has been calculated to be y = 2.125x + 2.0375. ","What would be the speed of a car powered by 5 solar panels, based on this equation?",1,12.6625,"Speed (y) = 2.125 - 5 + 2.0375= 12.6625 km/h ","Calculate the correlation coefficient, r, between the number of solar panels and the speed of a car.",2,0.85,"gradient = r * (standard deviation of y scores /standard deviation of x scores)2.125 = r - 2 / 0.8r = 0.85 ",,,,
-MG2,2017,30,e,gm201730e,MM4,,,,,"A solid is made up of a sphere sitting partially inside a cone. The sphere, centre O, has a radius of 4 cm and sits 2 cm inside the cone. The solid has a total height of 15 cm. The solid and its cross-section are shown. What is the volume of the cone, correct to the nearest cm\(^{3}\)?",,3,113,"Radius of cone, r = sqrt(4^2 - 2^2)= sqrt(12) cmHeight of cone, h = 15 - (4 + 2)= 9 cmVolume of cone, V =1/3*pi*r^2*h=1/3 * pi * (sqrt(12)^2 * 9= 113.09..= 113 cm3 (to nearest cm3) ",,,,,,,,
+MG2,2017,26,a,,FSRe3,,,,,"Electricity costs $0.27 per kWh.
+
+How much does 20 kWh cost?",,1,5.4,"$0.27 - 20
+= $5.40",,,,,,,,
+MG2,2017,26,b,gm201726b,FSCo1,,,,,"Toby's mobile phone plan costs $20 per month, plus the cost of all calls. Calls are charged at the rate of 70 cents per 30 seconds, or part thereof. There is also a call connection fee of 50c per call.
+
+Here is a record of all his calls in July.",How much is Toby's mobile phone bill for July?,2,27.1,"Cost 
+= $20 + $0.50 - 3 + $0.70 + $1.40 + $3.50
+= $27.10",,,,,,,,
+MG2,2017,26,c,,DS6,,,,,"A farmer needed to estimate the number of goats on his property. He tagged 80 of his goats. Later, he collected a random sample of 45 goats and found that 16 of these had tags.
+
+Estimate the number of goats the farmer has on his property.",,2,225,"Let N be the number of goats.
+16/45 = 80/N
+N = (80*45)/16
+= 225
+- The estimated number of goats the farmer has on his property is 225.",,,,,,,,
+MG2,2017,26,d,gm201726d,MM3,,,,,A sewer pipe needs to be placed into the ground so that it has a 2 degrees angle of depression. The length of the pipe is 15 000 mm.,How much deeper should one end of the pipe be compared to the other end? Answer to the nearest mm.,2,523,"Let x be the required depth.
+sin2 = x/15000
+= 15000 sin2
+= 523.4...
+= 523 mm (to the nearest mm)",,,,,,,,
+MG2,2017,26,e,,FM2,,,,,"Sam purchased 500 company shares at $3.20 per share. Brokerage fees were 1.5% of the purchase price.
+
+Sam is paid a dividend of 26 cents per share, then immediately sells the shares for $4.80 each.
+
+If he pays no further brokerage fees, what is Sam's total profit?
+",,3,906,"Share cost = 500 - 3.20
+= $1600
+Brokerage = 1.5% - 1600
+= $24
+Total cost = $1624
+Share selling price = 500 - 4.80
+= $2400
+Dividend = 0.26 - 500
+= $130
+Total proceeds = 2400 + 130
+= $2530
+Total profit = 2530 - 1624
+= $906",,,,,,,,
+MG2,2017,26,f,gm201726f,DS4,,,,,"The area chart shows the number of goals scored by three hockey teams, A, B
+and C, in the first 4 rounds.",How many goals were scored by team C in round 1?,1,4,,In which round did all three teams score the same number of goals?,1,3,,,,,
+MG2,2017,26,g,,FM4,,,,,"Rachel bought a motorcycle advertised for $7990. She paid a $500 deposit and took out a flat-rate loan to repay the balance. Simple interest was charged at a rate of 7% per annum on the amount borrowed. She repaid the loan over 2 years, making equal weekly repayments.
+
+Calculate the weekly repayment.
+",,3,82.1,"Amount borrowed 
+= 7990 - 500
+= $7490
+Interest 
+= 7490 - 0.07 - 2
+= $1048.60
+Repayment 
+= (7490 + 1048.60) / (2 - 52)
+= $82.10 per week",,,,,,,,
+MG2,2017,27,a,,FSRel,,,,,"Jamal surveyed eight households in his street. He asked them how many kilolitres (kL) of water they used in the last year. Here are the results. 
+
+220, 105, 101, 450, 37, 338, 151, 205 ",Calculate the mean of this set of data.,1,200.875,Mean = 200.875 kL,"What is the standard deviation of this set of data, correct to one decimal place?",1,127.4,,,,,
+MG2,2017,27,b,,FSCo2,,,,,How many 20 megabyte files can fit on a 3 terabyte external hard disc?,,2,157286,"3 terabytes = 3 - 2^40 bytes
+20 megabytes = 20 - 2^20 bytes
+Number of files 
+=(3 - 2^40)/(20 - 2^20)
+=157 286.4 
+",,,,,,,,
+MG2,2017,27,c,gm201727c,FM5,,,,,"A table of future value interest factors for an annuity of $1 is shown. 
+
+An annuity involves contributions of $12 000 per annum for 5 years. The
+interest rate is 4% per annum, compounded annually. ",Calculate the future value of this annuity.,1,64995.6,"Future value = 12 000 - 5.4163
+ = $64 995.60 ",Calculate the interest earned on this annuity.,1,4995.6,"Interest earned = 64 995.60 - (5 - 12 000)
+ = $4995.60 ",,,,
+MG2,2017,27,d,gm201727d,MM6,,,,,"Island A and island B are both on the equator. Island B is west of island A. The longitude of island A is 5\(^{\circ}\)E and the angle at the centre of Earth (O), between A and B, is 30\(^{\circ}\).",What is the longitude of island B? Answer in the format XXdegreesY (eg 10degreesS),1,25degreesW,,What time is it on island B when it is 10 am on island A?,1,0.3333333333,"Time difference = 15
+= 2 hours
+Time on island B = 10 am - 2 hours
+= 8 am ",How long will the ship take to arrive at island B? Give your answer in days and hours to the nearest hour.,3,3 days 12 hours,"Distance = 30/360 * 2pi * 6400
+= 3351.0..km
+Time = 3351.0../40 hours
+= 83.7..hours
+= 83.7../ 24 days
+= 3.490658504 days
+= 3 days + (0.490658504 x 24) hours
+= 3 days + 11.7..hours
+= 3 days 12 hours (nearest hour) "
+MG2,2017,27,e,,FSDr3,,,,,"Rhys is drinking low alcohol beer at a party over a five-hour period. He reads on the label of the low alcohol beer bottle that it is equivalent to 0.8 of a standard drink.
+
+Rhys weighs 90 kg.
+
+What is the maximum number of complete bottles of the low alcohol beer he can drink to remain under a Blood Alcohol Content (BAC) of 0.05?
+",,4,8,"BAC male = (10N-7.5H)/(6.8M)
+0.05 = (10N - 7.5*5)/(6.8*90)
+ 6.8 - 90 - 0.05 = 10N - 7.5 - 5
+10N = 7.5 - 5 + 6.8 - 90 - 0.05
+N = 6.81 ie 6.81 standard drinks 
+Number of bottles = 6.81/0.8 = 8.5125",,,,,,,,
+MG2,2017,28,a,gm201728aiii,AM1,,,,,Temperature can be measured in degrees Celsius (C) or degrees Fahrenheit (F). The two temperature scales are related by the equation shown.$$F={9C \over 5}+32$$,Calculate the temperature in degrees Fahrenheit when it is -20 degrees Celsius.,1,-4,"F=(9*(-20))/5 + 32
+F = -4","Solve the following equations simultaneously, using either the substitution method or the elimination method. $$F={9C \over 5}+32 \\ F=C$$",2,-40,"C = 9C/5 + 32
+5C = 9C + 160
+-160 = 4C
+C = -40",Where does the graph intersect?,1,"(-40,-40)","The two lines intersect at ( -40 , -40 )."
+MG2,2017,28,b,,PB2,,,,,Five people are in a team. Two of them are selected at random to attend a competition.,How many different groups of two can be selected?,1,10,(5*4)/2 = 10 groups of two,"If Mary is one of the five people in the team, what is the probability that she is selected to attend the competition?",1,0.4,"Four of the ten possible groups include Mary (ie a group including Mary and one of the other 4 team members).
+The probability = 4/10  = 0.4 ",,,,
+MG2,2017,28,c,,FM4,,,,,"Michelle borrows $100 000. The interest rate charged is 12% per annum compounded monthly. The monthly payment is $1029 and the first repayment is made after one month.
+
+What is the amount outstanding immediately after the SECOND monthly repayment is made?",,3,99941.71,"Amount owing after first month = 100000*(1+0.12/12)-1029 = 99971
+Amount owing after second month = 99971*(1+0.12/12)-1029 = 99941.71",,,,,,,,
+MG2,2017,28,d,,AM3,,,,,Make y the subject of the equation $$x=\sqrt{yp-1}$$,,2,y=(x^2+1)/p,"x2 = yp - 1 
+x2 + 1 = yp 
+y=(x^2+1)/p",,,,,,,,
+MG2,2017,28,e,gm201728e,AM5,,,,,"A movie theatre has 200 seats. Each ticket currently costs $8. The theatre owners are currently selling all 200 tickets for each session. They decide to increase the price of tickets to see if they can increase the income earned from each movie session.
+
+It is assumed that for each one dollar increase in ticket price, there will be 10 fewer tickets sold.
+
+A graph showing the relationship between an increase in ticket price and the income is shown below. ",What ticket price should be charged to maximise the income from a movie session?,1,14,"From the graph, the income is maximised when the increase in ticket price is $6.
+- the ticket price should be $8 + $6 = $14 ",What is the number of tickets sold when the income is maximised?,1,140,200 - 10 - 6 = 140 tickets,"The cost to the theatre owners of running each session is $500 plus $2 per ticket sold. 
+
+Calculate the profit earned by the theatre owners when the income earned from a session is maximised.",2,1180,"Income = 140 - $14
+ = $1960
+Cost = 140 - $2 + $500
+ = $780
+Profit = $1960 - $780
+ = $1180 "
+MG2,2017,29,a,gm201729a,FSRe2,,,,,"A new 200-metre long dam is to be built.
+
+The plan for the new dam shows evenly spaced cross-sectional areas. ","Using TWO applications of Simpson's rule, calculate the volume of the dam in m\(^{3}\).",2,44333,"h = 200/4 = 50
+V = 50/3* (0 + 4*140 + 270) + 50/3 *(270 + 4*300 + 360)
+=44333.33..
+=44333","It is known that the catchment area for this dam is 2 km\(^{2}\).
+
+Calculate how much rainfall is needed, to the nearest mm, to fill the dam.",2,22," 2 km2
+ = 2 - 1000 - 1000
+= 2 000 000 m2
+V = Ah
+44 333 = 2 000 000 - h
+44 333 h =
+2 000 000
+= 0.0221..m
+= 22 mm (nearest mm) ",,,,
+MG2,2017,29,b,gm201729b,FM3,,,,,"Sabrina's taxable income is $86 725 in a particular year. The table below is used to calculate her tax payable. In addition, she pays the Medicare levy, which is 2% of her taxable income. 
+
+Calculate Sabrina's net income in that year.",,3,65257.87,"Tax payable = 3572 + 0.325(86 725 - 37 000)
+= $19 732.63
+Medicare levy = 2% - 86 725
+= $1734.50
+Total payable = 19 732.63 + 1734.50
+= $21 467.13
+- Net income = 86 725 - 21 467.13
+= $65 257.87",,,,,,,,
+MG2,2017,29,c,gm201729c,DS4,,,,,"A group of Year 12 students was surveyed. The students were asked whether they live in the city or the country. They were also asked if they have ever waterskied.
+
+The results are recorded in the table. ","A person is selected at random from the group surveyed. 
+
+Calculate the probability that the person lives in the city and has never waterskied (to the nearest percentage).",2,0.71,"Number of students surveyed = 3520
+Probability = 2500/3520
+= 125/176
+= 71%","A newspaper article claimed that Year 12 students who live in the country are more likely to have waterskied than those who live in the city.
+
+Is this true, based on the survey results?",2,TRUE,"Country students who have water skied: 70/ 870- 100 = 8.04..%
+
+150 City students who have water skied: 150/ 2650 - 100 = 5.66..%
+
+The claim in the newspaper article is true. 
+",,,,
+MG2,2017,29,d,gm201729d,DS3,,,,,"All the students in a class of 30 did a test.
+
+The marks, out of 10, are shown in the dot plot. ",Find the median test mark.,1,6,"15th mark is 4.
+16th mark is 8.
+Median = (4+8)/2 = 6 ","The mean test mark is 5.4 . The standard deviation of the test marks is 4.22.
+
+Using the dot plot, calculate the percentage of the marks which lie within one standard deviation of the mean.",2,0.433,"Mean minus standard deviation = 5.4 - 4.22
+ = 1.18
+Mean plus standard deviation = 5.4 + 4.22
+ = 9.62
+ Percentage of marks between 1.18 and 9.62 = (2 + 2 + 2 + 1 + 6)/30
+ = 43.3% (1 decimal place) ","A student states that for any data set, 68% of the scores should lie within one standard deviation of the mean.
+
+With reference to the dot plot, explain why the student's statement is NOT relevant in this context.",1,not normally distributed,"The dot plot does not show a normally distributed data set, so the statement is not relevant."
+MG2,2017,30,a,,DS4,,,,,"A set of data has a lower quartile (QL) of 10 and an upper quartile (QU) of 16. 
+
+What is the maximum possible range for this set of data if there are no outliers? ",,2,24,"Interquartile range (IQR) = QU - QL
+= 16 - 10
+= 6
+ Lower bound = QL - 1.5 - IQR
+= 10 - 1.5 - 6
+= 1
+ Upper bound = QU + 1.5 - IQR
+= 16 + 1.5 - 6
+= 25
+- Range = 25 - 1
+= 24 ",,,,,,,,
+MG2,2017,30,b,,AM5,,,,,"The cost of a jewellery box varies directly with the cube of its height. A jewellery box with a height of 10 cm costs $50.
+
+Calculate the cost of a jewellery box with a height of 12 cm.",,2,86.4,"Let C be the cost of the jewellery box.
+Let h be the height of the jewellery box.
+C = kh^3 where k is a constant.
+50 = k * 10^3
+k = 0.05
+When h=12
+cost, C = 0.05 * 12^3
+= $86.40 ",,,,,,,,
+MG2,2017,30,c,gm201730c,MM5,,,,,"The diagram shows the location of three schools. School A is 5 km due north of school B, school C is 13 km from school B and ABC is 135\(^{\circ}\).","Calculate the shortest distance from school A to school C, to the nearest kilometre.",2,17,"AC^2
+ = 13^2 + 5^2 - 2 - 5 - 13 - cos135
+ = 285.92..
+AC = sqrt(285.92..)
+ = 16.9..
+= 17 km (nearest kilometre) ","Determine the bearing of school C from school A, to the nearest degree.",3,213,"sinA/13 = sin135/17
+sinA = 13sin135/17
+=0.5407
+A = 32.7..
+=33
+The bearing of school C from chool A is 180+33=213",,,,
+MG2,2017,30,d,gm201730d,AM1,,,,,"In an investigation, students used different numbers of identical small solar panels to power model cars. The cars were then tested and their speed measured in km/h. The results are summarised in the table.
+
+The equation of the least-squares line of best fit, relating the speed and the number of solar panels, has been calculated to be y = 2.125x + 2.0375. ","What would be the speed of a car powered by 5 solar panels, based on this equation?",1,12.6625,"Speed (y) = 2.125 - 5 + 2.0375
+= 12.6625 km/h ","Calculate the correlation coefficient, r, between the number of solar panels and the speed of a car.",2,0.85,"gradient = r * (standard deviation of y scores /standard deviation of x scores)
+2.125 = r - 2 / 0.8
+r = 0.85 ",,,,
+MG2,2017,30,e,gm201730e,MM4,,,,,"A solid is made up of a sphere sitting partially inside a cone. 
+
+The sphere, centre O, has a radius of 4 cm and sits 2 cm inside the cone. The solid has a total height of 15 cm. The solid and its cross-section are shown. 
+
+What is the volume of the cone, correct to the nearest cm\(^{3}\)?",,3,113,"Radius of cone, r = sqrt(4^2 - 2^2)
+= sqrt(12) cm
+Height of cone, h = 15 - (4 + 2)
+= 9 cm
+Volume of cone, V =1/3*pi*r^2*h
+=1/3 * pi * (sqrt(12)^2 * 9
+= 113.09..
+= 113 cm3
+ (to nearest cm3) ",,,,,,,,
