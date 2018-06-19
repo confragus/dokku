@@ -212,6 +212,7 @@
             p_score.innerHTML = score;
             maxscore = maxscore + parseInt(marks,10);
             p_maxscore.innerHTML = maxscore;
+            starttimer(1,0);
           } else {
             p_r.textContent = "Incorrect!"
             maxscore = maxscore + parseInt(marks,10);
@@ -256,6 +257,57 @@
       });
     }
     request.send();
+
+    // Clock Stuff
+
+    var showmns = document.getElementById('showmns');
+    var showscs = document.getElementById('showscs');
+
+    var count = 0;
+
+    function pad2(n) {
+        return n < 10 ? '0' + n : n;
+    };
+
+    function show() {
+        var s = count % 60;
+        var m = Math.floor(count / 60);
+        showmns.innerHTML = pad2(m);
+        showscs.innerHTML = pad2(s);
+    };
+
+    function timer() {
+        show();
+        if (count-- > 0) {
+            setTimeout(timer, 1000);
+        } else {
+          // alert();
+        };
+
+    };
+    
+    function starttimer(mns,scs) {
+      var s = parseInt(scs, 10);
+      var m = parseInt(mns, 10);
+      if (isNaN(s) || isNaN(m)) return;
+      scs = s;
+      mns = m;
+      
+      var current = count;
+      timegain = ((m * 60) + s);
+      count += timegain;
+      
+      // only restart the counter loop if it was previously stopped
+      if (current <= 0) {
+          timer();
+      } else {
+          show();
+      };
+
+    };
+
+    starttimer(5,0);
+
   </script>
 </body>
 
