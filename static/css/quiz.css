@@ -81,8 +81,8 @@ img {
   max-width: 99%;
   height:auto;
   padding: 0rem 2.5rem 0rem;
-  opacity: 0.8;
-  filter: alpha(opacity=80);
+/*  opacity: 0.8;
+  filter: alpha(opacity=80);*/
 }
 
 #root p {
