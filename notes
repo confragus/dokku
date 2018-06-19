@@ -1,0 +1,45 @@
+######## Deploy 
+  git add .
+  git commit -m "adsense"
+  git push -u origin master
+  git push dokku master
+
+  git remote add origin https://github.com/confragus/dokku.git
+  git push -u origin master
+
+######## Website Ideas
+  Quiz Website - 84m https://www.sporcle.com
+  Personality Test - 64m
+  Horoscope - 19m
+
+
+
+######## Top 25 Most Expensive Keywords in [AUD] 
+  Keyword Average CPC
+   Lawyer $46.25
+   Workers Comp $23.14
+ # Insurance  $22.62
+   Health and Fitness $20.81
+   Child Charities  $20.44
+   Business Software  $20.36
+   Internet $20.15
+   Business Services  $19.74
+   Finance  $19.74
+   Degree $18.38
+   Medical Health $17.79
+   Car Finance  $17.36
+ # Education  $17.11
+   Loans  $16.71
+   Mortgages  $16.43
+   Pension  $16.40
+ # Rubbish Removal  $15.64
+   Solar Panels $15.43
+   Financial Trading  $15.07
+   ISO9001 Consulting $15.05
+   Payment System $14.70
+   Leaking Shower Service $14.53
+   Roller Shutters  $14.25
+   Speed Bump $13.94
+   Transportation $13.80
+
+

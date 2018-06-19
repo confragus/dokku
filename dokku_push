@@ -1,7 +1,0 @@
-git add .
-git commit -m "jonoform"
-git push -u origin master
-git push dokku master
-
-git remote add origin https://github.com/confragus/dokku.git
-git push -u origin master
