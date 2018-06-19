@@ -12,14 +12,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML"></script>
 
-  <style>
-    #root {
-    ; /* collapse WS, preserve LB */
-    }
-    #root img{
-      max-width:99%;
-      height:auto;
-    }
   </style>
   <link rel="stylesheet" type="text/css" href="../static/css/quiz.css">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/quiz.css') }}">
@@ -28,8 +20,30 @@
 
 <body>
 
+  <div class="navbar">
+    <div id="scoreCard">
+      <div id="left">
+        <p>Accuracy:</p><br>
+        <p id="p_accuracy">%</p></div>
+      <div id="right">
+        <p>Score:</p><br>
+        <p id="p_score">0</p>
+        <p>/</p>
+        <p id="p_maxscore">0</p></div>
+      <div id="center">
+        <p>Time:</p><br>
+        <span id="showmns">00</span>
+        <p>:</p>
+        <span id="showscs">00</span></div>
+      </div>
+  </div>
+
   <div id="root"></div>
   <script>
+
+    var score = 0;
+    var maxscore = 0;
+    var accuracy = 0;
 
     function show(x) {
       x.style.display = "block";
@@ -70,9 +84,16 @@
         const p_q1 = document.createElement('p');
         const p_q2 = document.createElement('p');
         const p_q3 = document.createElement('p');
+
+        const p_mcA = document.createElement('p');
+        const p_mcB = document.createElement('p');
+        const p_mcC = document.createElement('p');
+        const p_mcD = document.createElement('p');
+
         const i_q1 = document.createElement('input');
         const i_q2 = document.createElement('input');
         const i_q3 = document.createElement('input');
+        
         const b_q1 = document.createElement('button');
         
         const p_r1 = document.createElement('h5');
@@ -86,6 +107,11 @@
         const p_s2 = document.createElement('h5');
         const p_s3 = document.createElement('h5');
 
+        const p_score = document.getElementById("p_score");
+        const p_maxscore = document.getElementById("p_maxscore");
+        const p_accuracy = document.getElementById("p_accuracy");
+        const p_realscore = document.getElementById("p_realscore");
+        
         function marks(x){
           if (x === '1'){
             return " (" + x + " mark)"
@@ -94,12 +120,24 @@
           }
         }
 
+        if (question.A != "") {
+          p_mcA.textContent = "A) " + question.A;
+          p_mcB.textContent = "B) " + question.B;
+          p_mcC.textContent = "C) " + question.C;
+          p_mcD.textContent = "D) " + question.D;
+        }
+        
         p_id.textContent = question.Subject + "-" + question.Year + " Q-"
           + question.ID + question.ID2;  
-        p_question.textContent = question.Question;
-        p_q1.textContent = question.Q1 + marks(question.M1);
-        p_q2.textContent = question.Q2 + marks(question.M2); 
-        p_q3.textContent = question.Q3 + marks(question.M3);
+        if (question.Q1 != ""){
+          p_question.textContent = question.Question;
+          p_q1.textContent = question.Q1 + marks(question.M1);
+          p_q2.textContent = question.Q2 + marks(question.M2); 
+          p_q3.textContent = question.Q3 + marks(question.M3);
+        } else {
+          p_question.textContent = question.Question + marks(question.M1);
+        }
+        
         MathJax.Hub.Queue(['Typeset', MathJax.Hub, p_question]);
         MathJax.Hub.Queue(['Typeset', MathJax.Hub, p_q1]);
         MathJax.Hub.Queue(['Typeset', MathJax.Hub, p_q2]);
@@ -138,22 +176,34 @@
             return;
           } else {
             hide(b_q1);
-            checkAnswers(i_q1,question.A1,p_r1,p_a1,p_s1);
-            checkAnswers(i_q2,question.A2,p_r2,p_a2,p_s2);
-            checkAnswers(i_q3,question.A3,p_r3,p_a3,p_s3);
+            checkAnswers(i_q1,question.A1,p_r1,p_a1,p_s1,question.M1);
+            if (question.Q2 != ""){
+              checkAnswers(i_q2,question.A2,p_r2,p_a2,p_s2,question.M2);
+            }
+            if (question.Q3 != ""){
+            checkAnswers(i_q3,question.A3,p_r3,p_a3,p_s3,question.M3);
+            }
           }
         }
 
-        function checkAnswers(i_q,q_,p_r,p_a,p_s){
+        function checkAnswers(i_q,q_,p_r,p_a,p_s,marks){
           i_q.readOnly = true;
+          show(p_a);
+          show(p_s);
           if (i_q.value.toLowerCase() === q_.toLowerCase() || 
           parseFloat(i_q.value) === parseFloat(q_)) {
             p_r.textContent = "Correct!";
+            score = score + parseInt(marks,10);
+            p_score.innerHTML = score;
+            maxscore = maxscore + parseInt(marks,10);
+            p_maxscore.innerHTML = maxscore;
           } else {
             p_r.textContent = "Incorrect!"
+            maxscore = maxscore + parseInt(marks,10);
+            p_maxscore.innerHTML = maxscore;
           };
-          show(p_a);
-          show(p_s);
+          accuracy = Math.round(score/maxscore*100);
+          p_accuracy.innerHTML = String(accuracy) + "%";
         }
 
         // Append the cards to the container element
@@ -165,6 +215,10 @@
           card.appendChild(i_question);
         };
         card.appendChild(p_q1);
+        card.appendChild(p_mcA);
+        card.appendChild(p_mcB);
+        card.appendChild(p_mcC);
+        card.appendChild(p_mcD);
         card.appendChild(i_q1);
         card.appendChild(p_r1);
         card.appendChild(p_a1);
