@@ -154,12 +154,7 @@
         } else {
           p_question.textContent = question.Question + marks(question.M1);
         }
-        
-        MathJax.Hub.Queue(['Typeset', MathJax.Hub, p_question]);
-        MathJax.Hub.Queue(['Typeset', MathJax.Hub, p_q1]);
-        MathJax.Hub.Queue(['Typeset', MathJax.Hub, p_q2]);
-        MathJax.Hub.Queue(['Typeset', MathJax.Hub, p_q3]);
-        
+               
         // Check if static html
         if (location.hostname === "") {
           i_question.setAttribute('src',"../static/img/qn/"+ question.Picture +".png");
@@ -279,6 +274,7 @@
     };
 
     function timer() {
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
         show();
         if (count-- > 0) {
             setTimeout(timer, 1000);
@@ -309,6 +305,7 @@
     };
 
     starttimer(5,0);
+
 
   </script>
 </body>
