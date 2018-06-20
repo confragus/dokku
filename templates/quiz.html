@@ -62,7 +62,7 @@
     var maxscore = 0;
     var accuracy = 0;
 
-    function show(x) {
+    function display(x) {
       x.style.display = "block";
     }
 
@@ -97,7 +97,12 @@
 
         const p_id = document.createElement('h1');
         const p_question = document.createElement('p');
-        const i_question = document.createElement('img');
+        const img_question = document.createElement('img');
+
+        const img_q1 = document.createElement('img');
+        const img_q2 = document.createElement('img');
+        const img_q3 = document.createElement('img');
+
         const p_q1 = document.createElement('p');
         const p_q2 = document.createElement('p');
         const p_q3 = document.createElement('p');
@@ -157,9 +162,15 @@
                
         // Check if static html
         if (location.hostname === "") {
-          i_question.setAttribute('src',"../static/img/qn/"+ question.Picture +".png");
+          img_question.setAttribute('src',"../static/img/qn/"+ question.Picture +".png");
+          img_q1.setAttribute('src',"../static/img/qn/"+ question.P1 +".png");
+          img_q2.setAttribute('src',"../static/img/qn/"+ question.P2 +".png");
+          img_q3.setAttribute('src',"../static/img/qn/"+ question.P3 +".png");
         } else {
-          i_question.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.Picture +".png"); 
+          img_question.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.Picture +".png"); 
+          img_q1.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.P1 +".png"); 
+          img_q2.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.P2 +".png"); 
+          img_q3.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.P3 +".png"); 
         };
 
         b_q1.addEventListener("click", myClickScript);
@@ -172,13 +183,13 @@
         p_s2.textContent = question.S2;
         p_s3.textContent = question.S3;
         
-        // hide(p_a1);
-        // hide(p_a2);
-        // hide(p_a3);
+        hide(p_a1);
+        hide(p_a2);
+        hide(p_a3);
         
-        // hide(p_s1);
-        // hide(p_s2);
-        // hide(p_s3);
+        hide(p_s1);
+        hide(p_s2);
+        hide(p_s3);
 
         function myClickScript() {
           // force answer on all inputs
@@ -200,8 +211,8 @@
 
         function checkAnswers(i_q,q_,p_r,p_a,p_s,marks){
           i_q.readOnly = true;
-          show(p_a);
-          show(p_s);
+          display(p_a);
+          display(p_s);
           if (i_q.value.toLowerCase() === q_.toLowerCase() || 
           parseFloat(i_q.value) === parseFloat(q_)) {
             p_r.textContent = "Correct!";
@@ -225,9 +236,12 @@
         card.appendChild(p_id);
         card.appendChild(p_question);
         if( question.Picture != "") {
-          card.appendChild(i_question);
+          card.appendChild(img_question);
         };
         card.appendChild(p_q1);
+        if( question.P1 != "") {
+          card.appendChild(img_question);
+        };
         card.appendChild(p_mcA);
         card.appendChild(p_mcB);
         card.appendChild(p_mcC);
@@ -238,6 +252,9 @@
         card.appendChild(p_s1);
         if (question.Q2 != "") {
           card.appendChild(p_q2);
+          if( question.P2 != "") {
+            card.appendChild(img_question);
+          };
           card.appendChild(i_q2);
           card.appendChild(p_r2);
           card.appendChild(p_a2);
@@ -245,6 +262,9 @@
         };
         if (question.Q3 != "") {
           card.appendChild(p_q3);
+          if( question.P3 != "") {
+            card.appendChild(img_question);
+          };
           card.appendChild(i_q3);
           card.appendChild(p_r3);
           card.appendChild(p_a3);
