@@ -61,6 +61,7 @@
     var score = 0;
     var maxscore = 0;
     var accuracy = 0;
+    var imgv = "?0.1";
 
     function display(x) {
       x.style.display = "block";
@@ -162,15 +163,15 @@
                
         // Check if static html
         if (location.hostname === "") {
-          img_question.setAttribute('src',"../static/img/qn/"+ question.Picture +".png");
-          img_q1.setAttribute('src',"../static/img/qn/"+ question.P1 +".png");
-          img_q2.setAttribute('src',"../static/img/qn/"+ question.P2 +".png");
-          img_q3.setAttribute('src',"../static/img/qn/"+ question.P3 +".png");
+          img_question.setAttribute('src',"../static/img/qn/"+ question.Picture +".png" + imgv);
+          img_q1.setAttribute('src',"../static/img/qn/"+ question.P1 +".png" + imgv);
+          img_q2.setAttribute('src',"../static/img/qn/"+ question.P2 +".png" + imgv);
+          img_q3.setAttribute('src',"../static/img/qn/"+ question.P3 +".png" + imgv);
         } else {
-          img_question.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.Picture +".png"); 
-          img_q1.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.P1 +".png"); 
-          img_q2.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.P2 +".png"); 
-          img_q3.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.P3 +".png"); 
+          img_question.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.Picture +".png" + imgv); 
+          img_q1.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.P1 +".png" + imgv); 
+          img_q2.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.P2 +".png" + imgv); 
+          img_q3.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.P3 +".png" + imgv); 
         };
 
         b_q1.addEventListener("click", myClickScript);
