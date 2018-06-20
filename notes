@@ -1,6 +1,6 @@
 ######## Deploy 
   git add .
-  git commit -m "2016gm"
+  git commit -m "2015gm"
   git push -u origin master
   git push dokku master
 
