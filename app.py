@@ -53,6 +53,10 @@ def chuck():
 def memory():
     return render_template('memory.html')
 
+@app.route('/list')
+def list():
+    return render_template('list.html')
+
 @app.route('/questionlist')
 def questionlist():
     return str(questions)
