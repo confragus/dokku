@@ -1,18 +1,40 @@
 ######## Deploy 
   git add .
-  git commit -m "2014gm"
+  git commit -m "cmcapi"
   git push -u origin master
   git push dokku master
 
   git remote add origin https://github.com/confragus/dokku.git
   git push -u origin master
 
+######## bored
+  Reddit as videos
+
 ######## Website Ideas
   Quiz Website - 84m https://www.sporcle.com
   Personality Test - 64m
   Horoscope - 19m
   Uber for kids
-
+  WorkReady - reverse linked in
+  MyersBriggs
+  Tontie
+  Reposts - funny/hotties/bunnies
+  Lawyer Comparison
+  Life Hacks
+  Calculators
+  I love data
+  Contests
+  Personal Finance 101
+  Psychologists
+  Singing tool
+  Postures
+  Donation website
+  Online Casino
+  Politics
+  Gym Comparison
+  Posture
+  Fantasy Basketball
+  Chinese Karaoke
 
 
 ######## Top 25 Most Expensive Keywords in [AUD] 

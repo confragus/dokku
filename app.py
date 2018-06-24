@@ -20,7 +20,6 @@ def index():
 
 @app.route('/cmc')
 def cmc():
-    # CMC
 
     flat_file = []
     flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC', flat_file)
@@ -39,7 +38,6 @@ def cmc():
     flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=1301', flat_file)
     flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=1401', flat_file)
     flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=1501', flat_file)
-    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=1601', flat_file)
 
     json_file = cmc_json(flat_file)
     

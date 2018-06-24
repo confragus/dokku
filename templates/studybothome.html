@@ -1,4 +1,158 @@
-<style type="text/css">
-  body {background:#efefef;}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * {box-sizing: border-box;}
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #666;
+    background: #F6F6F6;
+  }
+
+  .grid {
+    max-width: 940px;
+    margin: 0 auto;
+  }
+
+  .grid > div {
+/*    border: 2px solid rgb(171,171,88);
+    border-radius: 5px;*/
+/*    background-color: rgba(171,171,88,.5);*/
+    padding: 0.5em;
+    color: #444;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(25px, auto);
+  }
+
+  .d_jumbo {
+    grid-column: 1 / 13;
+    grid-row: 1;
+  }
+
+  .d_nav { 
+    grid-column: 1 / 13;
+    grid-row: 2;
+    background-color: #333;
+    font-weight: bold;
+  }
+
+  .cheetah {
+    grid-column: 4 / 13;
+    grid-row: 3;
+  }
+
+  .d_left {
+    grid-column: 1 / 4;
+    grid-row: 3;
+  }
+
+  .turtle {
+    grid-column: 1 / 10;
+    grid-row: 4;
+  }
+
+  .d_right {
+    grid-column: 10 / 13;
+    grid-row: 4;
+  }
+
+  .d_footer {
+    grid-column: 1/13;
+    grid-row: 5;
+    background-color: #cba34a;
+  }
+
+  .d_footer p {
+    color: white;
+  }
+
+  #img_logo{
+    display: block;
+    margin: auto;
+    width: 30%;
+  }
+
+  .img_center {
+    display: block;
+    margin: auto;
+    width: 80%;
+  }
+
+  .grid_nav {
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .grid_nav > div{
+    /*border: 2px solid rgb(171,171,88);*/
+    color: white;
+    text-align: center;
+  }
+
+  #nav_logo{
+    display: block;
+    margin: auto;
+    height: 25px;
+    -webkit-filter: invert(1);
+    filter: invert(1);
+  }
+
 </style>
-<img src="../static/img/owl.png?12" alt=""/>
+</head>
+<body>
+
+<div class="grid">
+  <div class="d_jumbo">
+    <img src="../static/img/owl.png" id="img_logo">
+  </div>
+  <div class="d_nav">
+    <div class="grid_nav">
+      <div><img src="../static/img/owl.png" id="nav_logo"></div>
+      <div>Statistics</div>
+      <div>Questions</div>
+      <div>Tests</div>
+      <div>Blog</div>
+      <div>Login/SignUp</div>
+    </div>
+  </div>
+  <div class="cheetah">
+    <div class="d_cheetah">
+      <img src="../static/img/mecha_cats_04_cheetah_by_emeraldsora-d1j5zs0.jpg" class="img_center">
+    </div>
+  </div>
+  <div class="d_left">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  </div>
+  <div class="turtle">
+    <div class="d_turtle">
+      <img src="../static/img/turtle.jpeg" class="img_center">
+    </div>
+  </div>
+
+  <div class="d_footer">
+    <h5>Contact Us</h5>
+    <p>Sefeom footer imfoasf</p>
+  </div>
+  <div class="d_right">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+</div>
+
+</body>
+</html>
