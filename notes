@@ -1,6 +1,6 @@
 ######## Deploy 
   git add .
-  git commit -m "logo"
+  git commit -m "colour"
   git push -u origin master
   git push dokku master
 
