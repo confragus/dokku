@@ -1,6 +1,6 @@
 ######## Deploy 
   git add .
-  git commit -m "cmcapi"
+  git commit -m "logo"
   git push -u origin master
   git push dokku master
 

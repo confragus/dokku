@@ -3,3 +3,4 @@ gunicorn==19.7.1
 requests
 flatten_json
 flask-cors
+praw

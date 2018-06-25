@@ -4,16 +4,49 @@
 <style>
   * {box-sizing: border-box;}
 
-  html {
+  html, body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
+    line-height: 2;
     color: #666;
-    background: #F6F6F6;
+    background: #3f99f7;
+    margin:0;
+  }
+
+  h1 {
+    text-align: center;
+    color: white;
+    font-size: 8em;
+    line-height: 0em;
+  }
+
+  h2 {
+    text-align: center;
+    color: white;
+    font-size: 2em;
+  }
+
+  h3 {
+    text-align: center;
+    color: #eb4035;
+    font-size: 7em;
+    line-height: 0.5em;
+    -webkit-text-stroke: 2px black;
+  }
+
+  h4 {
+    text-align: center;
+    color: #f8f2a1;
+    font-size: 3em;
+    line-height: 0.5em;
+    -webkit-text-stroke: 1px black;
+    font-weight: bold;
   }
 
   .grid {
+    padding-top:6em;
+    padding-bottom: 6em;
     max-width: 940px;
     margin: 0 auto;
   }
@@ -21,8 +54,8 @@
   .grid > div {
 /*    border: 2px solid rgb(171,171,88);
     border-radius: 5px;*/
-/*    background-color: rgba(171,171,88,.5);*/
-    padding: 0.5em;
+    background-color: #3f99f7;
+    padding: 1em;
     color: #444;
   }
 
@@ -39,36 +72,40 @@
   }
 
   .d_nav { 
-    grid-column: 1 / 13;
-    grid-row: 2;
+    overflow: hidden;
     background-color: #333;
-    font-weight: bold;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding:1em;
+  }
+
+  .d_footer { 
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding:1em;
+  }
+
+  .d_info { 
+    grid-column: 1 / 13;
+    grid-row: 3;
   }
 
   .cheetah {
-    grid-column: 4 / 13;
-    grid-row: 3;
-  }
-
-  .d_left {
-    grid-column: 1 / 4;
-    grid-row: 3;
+    grid-column: 1 / 13;
+    grid-row: 4;
+    text-align: center;
+    background-color:#92cb47;
+    padding:1em;
   }
 
   .turtle {
-    grid-column: 1 / 10;
-    grid-row: 4;
-  }
-
-  .d_right {
-    grid-column: 10 / 13;
-    grid-row: 4;
-  }
-
-  .d_footer {
-    grid-column: 1/13;
+    grid-column: 1 / 13;
     grid-row: 5;
-    background-color: #cba34a;
+    text-align: center;
   }
 
   .d_footer p {
@@ -91,68 +128,113 @@
     display:grid;
     grid-template-columns: repeat(6, 1fr);
   }
-
-  .grid_nav > div{
-    /*border: 2px solid rgb(171,171,88);*/
+  .grid_footer {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid_footer > div{
     color: white;
     text-align: center;
+    font-size: 1.5em;
+  }
+
+  .grid_nav > div{
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
   }
 
   #nav_logo{
     display: block;
     margin: auto;
-    height: 25px;
-    -webkit-filter: invert(1);
-    filter: invert(1);
+    height: 40px;
+  }
+
+  .button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 3em;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  #fastbut{
+    background-color:#eb4035;
+  }
+
+  #survivalbut{
+    background-color:#eedf4f;
+  }
+
+  #exambut{
+    background-color:#357e7b;
+  }
+
+  .d_cheetah{
+    background-color:white;
+    padding: 1em;
+    margin: 2em;
+    color: #444444;
+  }
+  .d_cheetah h2{
+    color: #444444;
   }
 
 </style>
 </head>
 <body>
-
+<div class="d_nav">
+  <div class="grid_nav">
+    <div>
+      <img src="../static/img/owl.png" id="nav_logo" onerror="this.style.display='none'">
+      <img src="{{ url_for('static', filename = 'img/owl.png') }}"" id="nav_logo" onerror="this.style.display='none'">
+    </div>
+    <div>Statistics</div>
+    <div>Questions</div>
+    <div>Tests</div>
+    <div>Blog</div>
+    <div>Login/SignUp</div>
+  </div>
+</div>
 <div class="grid">
   <div class="d_jumbo">
-    <img src="../static/img/owl.png" id="img_logo">
-  </div>
-  <div class="d_nav">
-    <div class="grid_nav">
-      <div><img src="../static/img/owl.png" id="nav_logo"></div>
-      <div>Statistics</div>
-      <div>Questions</div>
-      <div>Tests</div>
-      <div>Blog</div>
-      <div>Login/SignUp</div>
-    </div>
-  </div>
+    <h1>studybot</h1>
+    <h3>beta</h3><br>
+    <img src="../static/img/owl.png" id="img_logo" onerror="this.style.display='none'">
+    <img src="{{ url_for('static', filename = 'img/owl.png') }}"" id="img_logo" onerror="this.style.display='none'">
+    <h2>Random quizes made from past HSC papers</h2>
+    <h2>Only HSC Mathematics General 2 available for now</h2>
   <div class="cheetah">
     <div class="d_cheetah">
-      <img src="../static/img/mecha_cats_04_cheetah_by_emeraldsora-d1j5zs0.jpg" class="img_center">
+      <a href="#" class="button" id="fastbut">Fast Mode</a><br>
+        <h2>Answer as many as you can in 15 minutes</h2>
+      </div>
+    <div class="d_cheetah">
+      <a href="#" class="button" id="survivalbut">Survival Mode</a><br>
+        <h2>You have three lives, use them wisely</h2>
     </div>
-  </div>
-  <div class="d_left">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    <div class="d_cheetah">
+      <a href="#" class="button" id="exambut"">Exam Mode</a>
+        <h2>100 marks: 2 and a half hours</h2>
+      </div>
   </div>
   <div class="turtle">
     <div class="d_turtle">
-      <img src="../static/img/turtle.jpeg" class="img_center">
     </div>
   </div>
-
-  <div class="d_footer">
-    <h5>Contact Us</h5>
-    <p>Sefeom footer imfoasf</p>
-  </div>
-  <div class="d_right">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </div>
 </div>
-
+<div class="d_footer">
+  <div class="grid_footer">
+    <div>Time Left:</div>
+    <div>Accuracy:</div>
+    <div>Score:</div>
+  </div>
+</div>
 </body>
 </html>
