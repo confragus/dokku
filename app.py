@@ -37,8 +37,7 @@ def cmc():
     flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=1201', flat_file)
     flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=1301', flat_file)
     flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=1401', flat_file)
-    flat_file = cmc_flat('https://api.coinmarketcap.com/v2/ticker/?convert=BTC&start=1501', flat_file)
-
+   
     json_file = cmc_json(flat_file)
     
     return str(json_file)
