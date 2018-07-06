@@ -12,10 +12,10 @@ img {
   filter: invert(5%);
 }
 p {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 h1 {
-  font-size: 3em;
+  font-size: 4em;
   text-align: center;
 }
 input {
@@ -39,7 +39,7 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 1.5em;
+  font-size: 2em;
   margin: 4px 2px;
   cursor: pointer;
   width:99%;
@@ -58,7 +58,7 @@ button {
     border: none;
     text-align: center;
     outline: none;
-    font-size: 1em;
+    font-size: 2em;
 }
 .active, .collapsible:hover {
     background-color: #555;
@@ -103,7 +103,7 @@ button {
 .grid_nav > div{
   color: white;
   text-align: center;
-  font-size: 1em;
+  font-size: 1.5em;
   margin: auto;
 }
 .nav_logo{
