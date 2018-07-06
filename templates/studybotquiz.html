@@ -1,0 +1,386 @@
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>studybot</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { fonts: ["TeX"] }
+    });
+  </script>
+  <script type="text/javascript" src="../static/MathJax-master/MathJax.js"></script>
+  <script src="{{ url_for('static', filename = 'MathJax-master/MathJax.js') }}"></script>
+
+  <link rel="stylesheet" type="text/css" href="../static/css/studybot2.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/studybot2.css') }}">
+
+</head>
+<body>
+
+<!-- navigation -->
+<div class="nav_background">
+  <div class="d_nav">
+    <div class="grid_nav">
+      <div class="d_logo">
+        <img src="../static/img/owl.png" class="nav_logo" onerror="this.style.display='none'">
+        <img src="{{ url_for('static', filename = 'img/owl.png') }}"" class="nav_logo" onerror="this.style.display='none'">
+        <span>studybot</span>
+      </div>
+      <div>Time Left: <span id="showmns">00</span>:
+          <span id="showscs">00</span>
+        </div>
+      <div>Score:</div>
+    </div>
+  </div>
+</div>
+
+<div class="d_top_padding"></div>
+
+<!-- welcome screen -->
+<div class="container">
+  <div class="card">
+    <img src="../static/img/owl.png" class="splash_logo" onerror="this.style.display='none'">
+    <img src="{{ url_for('static', filename = 'img/owl.png') }}"" class="splash_logo" onerror="this.style.display='none'">
+    <h1>studybot</h1>
+    <button class="button">Play</button>
+    <br>
+    <br>
+<!--     <p>Mathematics General 2</p>
+    <p>Questions sourced from 2000-2018</p>
+    <p>NSW EDUCATION STANDARDS AUTHORITY</p>
+    <p>HIGHER SCHOOL CERTIFICATE EXAMINATION</p>
+    <p>NESA approved calculators may be used</p>
+    <p>A formulae and data sheet is provided</p>
+    <p>90 seconds allowed for each mark</p>
+    <p>Time allowed decreases with each answer answered</p> -->
+
+    <button class="collapsible">Mathematics General 2</button>
+    <div class="content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <button class="collapsible">Instructions</button>
+    <div class="content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <button class="collapsible">About</button>
+    <div class="content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </div>
+
+</div>
+
+<div id="root"></div>
+
+<script>
+  
+  // Collapsible
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } 
+    });
+  }
+
+
+  var score = 0;
+  var maxscore = 0;
+  var accuracy = 0;
+  var imgv = "?0.1";
+  var card_id = 0;
+
+  function display(x) {
+    x.style.display = "block";
+  }
+
+  function hide(x){
+    x.style.display = "none";
+  }
+
+  // Access div in index.html
+  const app = document.getElementById('root');
+
+  // set up container
+  const container = document.createElement('div');
+  container.setAttribute('class', 'container');
+
+  // add logo and containder to the app root
+  app.appendChild(container);
+
+  // Create a request variable and assign a new XMLHttpRequest object to it.
+  var request = new XMLHttpRequest();
+
+  // Open a new connection, using the GET request on the URL endpoint
+  request.open('GET', 'http://empirestreet.com.au/questionlist', true);
+  request.onload = function () {
+
+  // Begin accessing JSON data here
+  var data = JSON.parse(this.response);
+
+    data.forEach(question => {
+      // Create a div with a card class
+      const card = document.createElement('div');
+      card.setAttribute('class', 'card');
+
+      const p_id = document.createElement('h5');
+      const p_question = document.createElement('p');
+      const img_question = document.createElement('img');
+
+      const img_q1 = document.createElement('img');
+      const img_q2 = document.createElement('img');
+      const img_q3 = document.createElement('img');
+
+      const p_q1 = document.createElement('p');
+      const p_q2 = document.createElement('p');
+      const p_q3 = document.createElement('p');
+
+      const p_mcA = document.createElement('p');
+      const p_mcB = document.createElement('p');
+      const p_mcC = document.createElement('p');
+      const p_mcD = document.createElement('p');
+
+      const i_q1 = document.createElement('input');
+      const i_q2 = document.createElement('input');
+      const i_q3 = document.createElement('input');
+      
+      const b_q1 = document.createElement('button');
+      b_q1.setAttribute('class', 'button');
+      
+      const p_r1 = document.createElement('p');
+      const p_r2 = document.createElement('p');
+      const p_r3 = document.createElement('p');
+
+      const p_a1 = document.createElement('p');
+      const p_a2 = document.createElement('p');
+      const p_a3 = document.createElement('p');
+      const p_s1 = document.createElement('p');
+      const p_s2 = document.createElement('p');
+      const p_s3 = document.createElement('p');
+
+      const p_score = document.getElementById("p_score");
+      const p_maxscore = document.getElementById("p_maxscore");
+      const p_accuracy = document.getElementById("p_accuracy");
+      const p_realscore = document.getElementById("p_realscore");
+      
+      function marks(x){
+        if (x === '1'){
+          return " (" + x + " mark)"
+        } else {
+          return " (" + x + " marks)"
+        }
+      }
+
+      if (question.A != "") {
+        p_mcA.textContent = "A) " + question.A;
+        p_mcB.textContent = "B) " + question.B;
+        p_mcC.textContent = "C) " + question.C;
+        p_mcD.textContent = "D) " + question.D;
+      }
+      
+      p_id.textContent = question.Subject + "-" + question.Year + " Q-"
+        + question.ID + question.ID2;  
+      if (question.Q1 != ""){
+        p_question.textContent = question.Question;
+        p_q1.textContent = question.Q1 + marks(question.M1);
+        p_q2.textContent = question.Q2 + marks(question.M2); 
+        p_q3.textContent = question.Q3 + marks(question.M3);
+      } else {
+        p_question.textContent = question.Question + marks(question.M1);
+      }
+             
+      // Check if static html
+      if (location.hostname === "") {
+        img_question.setAttribute('src',"../static/img/qn/"+ question.Picture +".png" + imgv);
+        img_q1.setAttribute('src',"../static/img/qn/"+ question.P1 +".png" + imgv);
+        img_q2.setAttribute('src',"../static/img/qn/"+ question.P2 +".png" + imgv);
+        img_q3.setAttribute('src',"../static/img/qn/"+ question.P3 +".png" + imgv);
+      } else {
+        img_question.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.Picture +".png" + imgv); 
+        img_q1.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.P1 +".png" + imgv); 
+        img_q2.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.P2 +".png" + imgv); 
+        img_q3.setAttribute('src',"{{ url_for('static', filename='img/qn/') }}"+ question.P3 +".png" + imgv); 
+      };
+
+      b_q1.addEventListener("click", myClickScript);
+      b_q1.textContent = "submit all answers"
+
+      p_a1.textContent = "Answer is: " + question.A1;
+      p_a2.textContent = "Answer is: " + question.A2;
+      p_a3.textContent = "Answer is: " + question.A3;
+      p_s1.textContent = question.S1;
+      p_s2.textContent = question.S2;
+      p_s3.textContent = question.S3;
+      
+      // hide(p_a1);
+      // hide(p_a2);
+      // hide(p_a3);
+      
+      // hide(p_s1);
+      // hide(p_s2);
+      // hide(p_s3);
+
+      function myClickScript() {
+        // force answer on all inputs
+        if (i_q1.value ==="" || 
+            i_q2.value === "" && question.Q2 != "" || 
+            i_q3.value === "" && question.Q3 != "") {
+          return;
+        } else {
+          b_q1.disabled = true;
+          b_q1.innerHTML = "-"
+          checkAnswers(i_q1,question.A1,p_r1,p_a1,p_s1,question.M1);
+          if (question.Q2 != ""){
+            checkAnswers(i_q2,question.A2,p_r2,p_a2,p_s2,question.M2);
+          }
+          if (question.Q3 != ""){
+          checkAnswers(i_q3,question.A3,p_r3,p_a3,p_s3,question.M3);
+          }
+        }
+      }
+
+      function checkAnswers(i_q,q_,p_r,p_a,p_s,marks){
+        i_q.readOnly = true;
+        display(p_a);
+        display(p_s);
+        if (i_q.value.toLowerCase() === q_.toLowerCase() || 
+        parseFloat(i_q.value) === parseFloat(q_)) {
+          b_q1.innerHTML = "Correct!";
+          score = score + parseInt(marks,10);
+          p_score.innerHTML = score;
+          maxscore = maxscore + parseInt(marks,10);
+          p_maxscore.innerHTML = maxscore;
+          starttimer(1,0);
+        } else {
+          b_q1.innerHTML = "Incorrect!"
+          maxscore = maxscore + parseInt(marks,10);
+          p_maxscore.innerHTML = maxscore;
+        };
+        accuracy = Math.round(score/maxscore*100);
+        p_accuracy.innerHTML = String(accuracy) + "%";
+      }
+
+      // Append the cards to the container element
+      container.appendChild(card);
+
+      card.appendChild(p_id);
+      card.appendChild(p_question);
+      if( question.Picture != "") {
+        card.appendChild(img_question);
+      };
+      card.appendChild(p_q1);
+      if( question.P1 != "") {
+        card.appendChild(img_question);
+      };
+      card.appendChild(p_mcA);
+      card.appendChild(p_mcB);
+      card.appendChild(p_mcC);
+      card.appendChild(p_mcD);
+      card.appendChild(i_q1);
+      card.appendChild(p_r1);
+      card.appendChild(p_a1);
+      card.appendChild(p_s1);
+      if (question.Q2 != "") {
+        card.appendChild(p_q2);
+        if( question.P2 != "") {
+          card.appendChild(img_question);
+        };
+        card.appendChild(i_q2);
+        card.appendChild(p_r2);
+        card.appendChild(p_a2);
+        card.appendChild(p_s2);
+      };
+      if (question.Q3 != "") {
+        card.appendChild(p_q3);
+        if( question.P3 != "") {
+          card.appendChild(img_question);
+        };
+        card.appendChild(i_q3);
+        card.appendChild(p_r3);
+        card.appendChild(p_a3);
+        card.appendChild(p_s3);
+      };
+      card.appendChild(b_q1);
+
+      // Track card id
+      card_id += 1;
+      card.id = card_id;
+      if (card.id > 10){
+        hide(card);
+      }
+
+    });
+  }
+  request.send();
+
+  // Clock Stuff
+
+  var showmns = document.getElementById('showmns');
+  var showscs = document.getElementById('showscs');
+
+  var count = 0;
+
+  function pad2(n) {
+      return n < 10 ? '0' + n : n;
+  };
+
+  function show() {
+      var s = count % 60;
+      var m = Math.floor(count / 60);
+      showmns.innerHTML = pad2(m);
+      showscs.innerHTML = pad2(s);
+  };
+
+  function timer() {
+      MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+      show();
+      if (count-- > 0) {
+          setTimeout(timer, 1000);
+      } else {
+        // alert();
+      };
+
+  };
+  
+  function starttimer(mns,scs) {
+    var s = parseInt(scs, 10);
+    var m = parseInt(mns, 10);
+    if (isNaN(s) || isNaN(m)) return;
+    scs = s;
+    mns = m;
+    
+    var current = count;
+    timegain = ((m * 60) + s);
+    count += timegain;
+    
+    // only restart the counter loop if it was previously stopped
+    if (current <= 0) {
+        timer();
+    } else {
+        show();
+    };
+
+  };
+
+  starttimer(5,0);
+</script>
+
+</body>
+</html>

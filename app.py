@@ -90,9 +90,9 @@ def js_quiz():
 def jonoform():
     return render_template('jonoform.html')
 
-@app.route('/studybothome')
-def studybothome():
-    return render_template('studybothome.html')
+@app.route('/studybotquiz')
+def studybotquiz():
+    return render_template('studybotquiz.html')
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 80.
