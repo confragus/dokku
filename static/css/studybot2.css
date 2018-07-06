@@ -12,10 +12,10 @@ img {
   filter: invert(5%);
 }
 p {
-  font-size: 2.5em;
+  font-size: 1.5em;
 }
 h1 {
-  font-size: 8em;
+  font-size: 3em;
   text-align: center;
 }
 input {
@@ -39,7 +39,7 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 2em;
+  font-size: 1.5em;
   margin: 4px 2px;
   cursor: pointer;
   width:99%;
@@ -58,7 +58,7 @@ button {
     border: none;
     text-align: center;
     outline: none;
-    font-size: 2em;
+    font-size: 1em;
 }
 .active, .collapsible:hover {
     background-color: #555;
@@ -87,7 +87,7 @@ button {
 .nav_background {
 }
 .d_nav { 
-  padding:1em;
+  padding:10px;
   margin: auto;
   background-color: #333;
   overflow: hidden;
@@ -97,13 +97,14 @@ button {
   z-index: 1;
 }
 .grid_nav {
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
 .grid_nav > div{
   color: white;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1em;
+  margin: auto;
 }
 .nav_logo{
   margin: auto;
@@ -131,7 +132,7 @@ button {
   margin: 0 auto;
 }
 .card {
-  margin: 2rem;
+  margin: 1rem;
   padding: 10px;
 }
 .splash_logo{
