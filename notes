@@ -1,6 +1,6 @@
 ######## Deploy 
   git add .
-  git commit -m "sheets"
+  git commit -m "questionlist2"
   git push -u origin master
   git push dokku master
 

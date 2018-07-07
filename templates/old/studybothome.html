@@ -1,0 +1,54 @@
+<style>
+  html, body {
+    background: #282923;
+    font-family: 'Roboto', sans-serif;
+    color: #f8f8f2;
+    margin:0;
+    text-align: center;
+    display: inline;
+  }
+  h1 {
+    font-size:7em;
+  }
+  p {
+    font-size:1.5em;
+  }
+  img {
+    display: block;
+    margin: 0rem auto;
+    max-width: 10em;
+    height:auto;
+  }
+  .button {
+    background-color: #357e7b;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2em;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+</style>
+<body>
+  <h1>studybot</h1>
+
+  <div>
+    <img src="../static/img/owl.png" id="nav_logo" onerror="this.style.display='none'">
+    <img src="{{ url_for('static', filename = 'img/owl.png') }}"" id="nav_logo" onerror="this.style.display='none'">
+  </div>
+
+  <br>
+
+  <a href="#" class="button">Play</a>
+  <p>Mathematics General 2</p>
+  <p>Questions sourced from 2000-2018</p>
+  <p>NSW EDUCATION STANDARDS AUTHORITY</p>
+  <p>HIGHER SCHOOL CERTIFICATE EXAMINATION</p>
+  <p>NESA approved calculators may be used</p>
+  <p>A formulae and data sheet is provided</p>
+  <p>90 seconds allowed for each mark</p>
+  <p>Time allowed decreases with each answer answered</p>
+</body>
